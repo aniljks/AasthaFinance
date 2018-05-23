@@ -1,0 +1,203 @@
+﻿@model AasthaFinance.Models.Report.ScheduleReportModel
+
+@{
+    ViewBag.Title = "PrintSchedule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Print Schedule of Loan</li>
+</ol>
+
+<h2 style="font-family:Lucida Calligraphy">Print Schedule of Loan</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Print Schedule of Loan</h2></div>
+        <div class="card-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend>ScheduleReportModel</legend>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.BranchId)
+                    </div>
+                    <div class="editor-field">
+                        @*@Html.EditorFor(model => model.BranchId)*@
+                        @Html.DropDownList("BranchId", null, String.Empty, new { @id = "ddlBranch", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BranchId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ClientId)
+                    </div>
+                    <div class="editor-field">
+                        @*@Html.EditorFor(model => model.ClientId)*@
+                        @Html.DropDownList("ClientId", null, String.Empty, new { @id = "ddlClient", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ClientId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LoanApplicationId)
+                    </div>
+                    <div class="editor-field">
+                        @*@Html.EditorFor(model => model.LoanApplicationId)*@
+                        @Html.DropDownList("LoanApplicationId", null, String.Empty, new { @id = "ddlLoanApplication", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LoanApplicationId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DisbursementId)
+                    </div>
+                    <div class="editor-field">
+                        @*@Html.EditorFor(model => model.DisbursementId)*@
+                        @Html.DropDownList("DisbursementId", null, String.Empty, new { @id = "ddlLoanDisbursement", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DisbursementId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LoanCycleId)
+                    </div>
+                    <div class="editor-field">
+                        @*@Html.EditorFor(model => model.LoanCycleId)*@
+                        @Html.DropDownList("LoanCycleId", null, String.Empty, new { @id = "ddlLoanCycle", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LoanCycleId)
+                    </div>
+
+
+                </fieldset>
+                <br />
+                <fieldset>
+                    <p>
+                        <input type="submit" class="btn btn-primary" value="Print Collection Schedule" />
+                    </p>
+                </fieldset>
+            }
+
+        </div>
+    </div>
+</div>
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#ddlBranch").change(function () {
+            $("#ddlClient").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getClient")',
+
+                dataType: 'json',
+
+                data: { branchId: $("#ddlBranch").val() },
+
+
+                success: function (states) {
+
+
+                    $.each(states, function (i, state) {
+                        $("#ddlClient").append('<option value="' + state.Value + '">' +
+                             state.Text + '</option>');
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve Clients.' + ex);
+                }
+            });
+            return false;
+        })
+
+
+        $("#ddlClient").change(function () {
+            $("#ddlLoanApplication").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getClientLoanApplication")',
+
+                dataType: 'json',
+
+                data: { branchId: $("#ddlBranch").val(), clientId: $("#ddlClient").val() },
+
+
+                success: function (states) {
+
+
+                    $.each(states, function (i, state) {
+                        $("#ddlLoanApplication").append('<option value="' + state.Value + '">' +
+                             state.Text + '</option>');
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve Clients.' + ex);
+                }
+            });
+            return false;
+        })
+
+
+        $('#ddlLoanApplication').change(function () {
+            $("#ddlLoanDisbursement").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getClientLoanDisbursedCode")',
+
+                dataType: 'json',
+
+                data: { branchId: $("#ddlBranch").val(), clientId: $("#ddlClient").val(), loanAppId: $('#ddlLoanApplication').val() },
+
+                success:
+                    function (loanApplication) {
+                        $.each(loanApplication, function (i, loanApplication) {
+                            $("#ddlLoanDisbursement").append('<option value="' + loanApplication.Value + '">' +
+                                 loanApplication.Text + '</option>');
+
+                        });
+                    },
+                error: function (ex) {
+                    alert('Failed to retrieve data: ' + ex.statusText);
+                }
+            });
+            return false;
+        });
+
+        $('#ddlLoanDisbursement').change(function () {
+            $("#ddlLoanCycle").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getClientLoanCycles")',
+
+                dataType: 'json',
+
+                data: { branchId: $("#ddlBranch").val(), clientId: $("#ddlClient").val(), loanAppId: $('#ddlLoanApplication').val(), loanDisburseId: $('#ddlLoanDisbursement').val() },
+
+                success:
+                    function (loanApplication) {
+                        $.each(loanApplication, function (i, loanApplication) {
+                            $("#ddlLoanCycle").append('<option value="' + loanApplication.Value + '">' +
+                                 loanApplication.Text + '</option>');
+
+                        });
+                    },
+                error: function (ex) {
+                    alert('Failed to retrieve data: ' + ex.statusText);
+                }
+            });
+            return false;
+        });
+
+    });
+
+</script>

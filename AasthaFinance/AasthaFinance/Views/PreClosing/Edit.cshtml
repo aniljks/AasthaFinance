@@ -1,0 +1,92 @@
+﻿@model AasthaFinance.Data.LoanPreClosing
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>LoanPreClosing</legend>
+
+        @Html.HiddenFor(model => model.LoanPreClosingId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LoanDisbursementId, "LoanDisbursement")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("LoanDisbursementId", String.Empty)
+            @Html.ValidationMessageFor(model => model.LoanDisbursementId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClosingDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClosingDate)
+            @Html.ValidationMessageFor(model => model.ClosingDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AmountPaid)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AmountPaid)
+            @Html.ValidationMessageFor(model => model.AmountPaid)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreClosingCharges)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreClosingCharges)
+            @Html.ValidationMessageFor(model => model.PreClosingCharges)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserId, "User")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UserId", String.Empty)
+            @Html.ValidationMessageFor(model => model.UserId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ActualLoanBalance)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ActualLoanBalance)
+            @Html.ValidationMessageFor(model => model.ActualLoanBalance)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalPaid)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TotalPaid)
+            @Html.ValidationMessageFor(model => model.TotalPaid)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

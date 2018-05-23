@@ -1,0 +1,72 @@
+﻿@model AasthaFinance.Data.LoanPreClosing
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LoanPreClosing</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanDisbursement.BankName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanDisbursement.BankName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClosingDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClosingDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AmountPaid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmountPaid)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PreClosingCharges)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PreClosingCharges)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ActualLoanBalance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActualLoanBalance)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalPaid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalPaid)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LoanPreClosingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

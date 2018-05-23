@@ -1,0 +1,1981 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AasthaFinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="150" />
+          <Property Name="BranchAddress" Type="nvarchar(max)" />
+          <Property Name="BranchContact" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="200" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CurrentAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="Post" Type="nvarchar" MaxLength="100" />
+          <Property Name="District" Type="nvarchar" MaxLength="100" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="ClientCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="PersonalContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="OfficeContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientImage" Type="nvarchar" MaxLength="300" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="BranchId" Type="int" />
+        </EntityType>
+        <EntityType Name="Freequency">
+          <Key>
+            <PropertyRef Name="FreequencyId" />
+          </Key>
+          <Property Name="FreequencyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Freequency" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gender" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="InterestModel">
+          <Key>
+            <PropertyRef Name="InterestModelId" />
+          </Key>
+          <Property Name="InterestModelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="interestModel" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoanApplication">
+          <Key>
+            <PropertyRef Name="LoanApplicationId" />
+          </Key>
+          <Property Name="LoanApplicationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanApplicationNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoanApplicationDate" Type="datetime" />
+          <Property Name="LastMonthIncome" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IsKYCVerified" Type="bit" />
+          <Property Name="EMIStartDate" Type="datetime" />
+          <Property Name="LoanAmount" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LoanPurpose" Type="nvarchar" MaxLength="300" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="200" />
+          <Property Name="BankAccountNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChequeNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GuarantorName" Type="nvarchar" MaxLength="150" />
+          <Property Name="GuarantorMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="InterestRate" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="InterestModelId" Type="int" />
+          <Property Name="ReasonForLoan" Type="nvarchar" MaxLength="350" />
+          <Property Name="FreequencyId" Type="int" />
+          <Property Name="LoanApplicationStatusId" Type="int" />
+          <Property Name="ClientId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LoanApplicationStatus">
+          <Key>
+            <PropertyRef Name="LoanApplicationStatusId" />
+          </Key>
+          <Property Name="LoanApplicationStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanApplicationStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoanCycle">
+          <Key>
+            <PropertyRef Name="LoanCycleId" />
+          </Key>
+          <Property Name="LoanCycleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanCycle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoanDisbursement">
+          <Key>
+            <PropertyRef Name="LoanDisbursementId" />
+          </Key>
+          <Property Name="LoanDisbursementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="ClientId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="LoanApplicationId" Type="int" />
+          <Property Name="PaymentModeId" Type="int" />
+          <Property Name="DisbursementCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="150" />
+          <Property Name="DisbursmentDate" Type="datetime" />
+          <Property Name="PaymentChequeNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoanCycleId" Type="int" />
+          <Property Name="ProposedAmount" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ProcessingCharge" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ActualPaidAmount" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="EMIStartDate" Type="datetime" />
+          <Property Name="LoanRepayFreequencyId" Type="int" />
+          <Property Name="InterestRate" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LoanEMI" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TimePeriod" Type="int" />
+          <Property Name="TotalRepayAmountWithInterest" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LoanStatusId" Type="int" />
+          <Property Name="LoanNotes" Type="nvarchar" MaxLength="500" />
+          <Property Name="LoanRepayBalance" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="LoanEMISchedule">
+          <Key>
+            <PropertyRef Name="LoanEMIScheduleId" />
+          </Key>
+          <Property Name="LoanEMIScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanDisbursementId" Type="int" />
+          <Property Name="ScheduleDate" Type="datetime" />
+          <Property Name="EMIDate" Type="date" />
+          <Property Name="EMI" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PrincipleAmount" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="InterestAmount" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LoanPreClosing">
+          <Key>
+            <PropertyRef Name="LoanPreClosingId" />
+          </Key>
+          <Property Name="LoanPreClosingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanDisbursementId" Type="int" />
+          <Property Name="ClosingDate" Type="date" />
+          <Property Name="AmountPaid" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PreClosingCharges" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ActualLoanBalance" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TotalPaid" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="LoanRepayment">
+          <Key>
+            <PropertyRef Name="LoanRepaymentId" />
+          </Key>
+          <Property Name="LoanRepaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="ClientId" Type="int" />
+          <Property Name="LoanApplicationId" Type="int" />
+          <Property Name="LoanDisbursementId" Type="int" />
+          <Property Name="LoanCycleId" Type="int" />
+          <Property Name="LoanEMIScheduletId" Type="int" />
+          <Property Name="PaymentDate" Type="date" />
+          <Property Name="LateFees" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AmountPaid" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="BalanceAmount" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="RepaymentStatusId" Type="int" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ActualAmount" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="LoanRepaymentStatus">
+          <Key>
+            <PropertyRef Name="LoanRepaymentStatusId" />
+          </Key>
+          <Property Name="LoanRepaymentStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanRepaymentStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoanStatus">
+          <Key>
+            <PropertyRef Name="LoanStatusId" />
+          </Key>
+          <Property Name="LoanStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AasthaFinance.dbo.Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Thread" />
+            <PropertyRef Name="Level" />
+            <PropertyRef Name="Logger" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Thread" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logger" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Exception" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="PaymentMode">
+          <Key>
+            <PropertyRef Name="PaymentModeId" />
+          </Key>
+          <Property Name="PaymentModeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentMode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="RoleId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Client_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_Freequency">
+          <End Role="Freequency" Type="Self.Freequency" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freequency">
+              <PropertyRef Name="FreequencyId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="FreequencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_InterestModel">
+          <End Role="InterestModel" Type="Self.InterestModel" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterestModel">
+              <PropertyRef Name="InterestModelId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="InterestModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_LoanApplicationStatus">
+          <End Role="LoanApplicationStatus" Type="Self.LoanApplicationStatus" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanApplicationStatus">
+              <PropertyRef Name="LoanApplicationStatusId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="LoanApplicationStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_Freequency">
+          <End Role="Freequency" Type="Self.Freequency" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freequency">
+              <PropertyRef Name="FreequencyId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanRepayFreequencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_LoanApplication">
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanApplication">
+              <PropertyRef Name="LoanApplicationId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_LoanCycle">
+          <End Role="LoanCycle" Type="Self.LoanCycle" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanCycle">
+              <PropertyRef Name="LoanCycleId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_LoanStatus">
+          <End Role="LoanStatus" Type="Self.LoanStatus" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanStatus">
+              <PropertyRef Name="LoanStatusId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_PaymentMode">
+          <End Role="PaymentMode" Type="Self.PaymentMode" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMode">
+              <PropertyRef Name="PaymentModeId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="PaymentModeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanEMISchedule_LoanDisbursement">
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="0..1" />
+          <End Role="LoanEMISchedule" Type="Self.LoanEMISchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanDisbursement">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Principal>
+            <Dependent Role="LoanEMISchedule">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanPreClosing_LoanDisbursement">
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="0..1" />
+          <End Role="LoanPreClosing" Type="Self.LoanPreClosing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanDisbursement">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Principal>
+            <Dependent Role="LoanPreClosing">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanPreClosing_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanPreClosing" Type="Self.LoanPreClosing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanPreClosing">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanApplication">
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanApplication">
+              <PropertyRef Name="LoanApplicationId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanCycle">
+          <End Role="LoanCycle" Type="Self.LoanCycle" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanCycle">
+              <PropertyRef Name="LoanCycleId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanDisbursement">
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanDisbursement">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanEMISchedule">
+          <End Role="LoanEMISchedule" Type="Self.LoanEMISchedule" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanEMISchedule">
+              <PropertyRef Name="LoanEMIScheduleId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanEMIScheduletId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanRepaymentStatus">
+          <End Role="LoanRepaymentStatus" Type="Self.LoanRepaymentStatus" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanRepaymentStatus">
+              <PropertyRef Name="LoanRepaymentStatusId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="RepaymentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetCollectionRecipt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BranchId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetPrintScheduleByDID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BranchId" Type="int" Mode="In" />
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+          <Parameter Name="LoanApplicationId" Type="int" Mode="In" />
+          <Parameter Name="LoanDisbursementiD" Type="int" Mode="In" />
+          <Parameter Name="LoanCycleId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="AasthaFinanceModelStoreContainer">
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Freequency" EntityType="Self.Freequency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterestModel" EntityType="Self.InterestModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanApplication" EntityType="Self.LoanApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanApplicationStatus" EntityType="Self.LoanApplicationStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanCycle" EntityType="Self.LoanCycle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanDisbursement" EntityType="Self.LoanDisbursement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanEMISchedule" EntityType="Self.LoanEMISchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanPreClosing" EntityType="Self.LoanPreClosing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanRepayment" EntityType="Self.LoanRepayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanRepaymentStatus" EntityType="Self.LoanRepaymentStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanStatus" EntityType="Self.LoanStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMode" EntityType="Self.PaymentMode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Log].[Id] AS [Id], 
+[Log].[Date] AS [Date], 
+[Log].[Thread] AS [Thread], 
+[Log].[Level] AS [Level], 
+[Log].[Logger] AS [Logger], 
+[Log].[Message] AS [Message], 
+[Log].[Exception] AS [Exception]
+FROM [dbo].[Log] AS [Log]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Client_Branch" Association="Self.FK_Client_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_Branch" Association="Self.FK_LoanApplication_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_Client" Association="Self.FK_LoanApplication_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_Freequency" Association="Self.FK_LoanApplication_Freequency">
+            <End Role="Freequency" EntitySet="Freequency" />
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_InterestModel" Association="Self.FK_LoanApplication_InterestModel">
+            <End Role="InterestModel" EntitySet="InterestModel" />
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_LoanApplicationStatus" Association="Self.FK_LoanApplication_LoanApplicationStatus">
+            <End Role="LoanApplicationStatus" EntitySet="LoanApplicationStatus" />
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_User" Association="Self.FK_LoanApplication_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_Branch" Association="Self.FK_LoanDisbursement_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_Client" Association="Self.FK_LoanDisbursement_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_Freequency" Association="Self.FK_LoanDisbursement_Freequency">
+            <End Role="Freequency" EntitySet="Freequency" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_LoanApplication" Association="Self.FK_LoanDisbursement_LoanApplication">
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_LoanCycle" Association="Self.FK_LoanDisbursement_LoanCycle">
+            <End Role="LoanCycle" EntitySet="LoanCycle" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_LoanStatus" Association="Self.FK_LoanDisbursement_LoanStatus">
+            <End Role="LoanStatus" EntitySet="LoanStatus" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_PaymentMode" Association="Self.FK_LoanDisbursement_PaymentMode">
+            <End Role="PaymentMode" EntitySet="PaymentMode" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_User" Association="Self.FK_LoanDisbursement_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanEMISchedule_LoanDisbursement" Association="Self.FK_LoanEMISchedule_LoanDisbursement">
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+            <End Role="LoanEMISchedule" EntitySet="LoanEMISchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanPreClosing_LoanDisbursement" Association="Self.FK_LoanPreClosing_LoanDisbursement">
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+            <End Role="LoanPreClosing" EntitySet="LoanPreClosing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanPreClosing_User" Association="Self.FK_LoanPreClosing_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoanPreClosing" EntitySet="LoanPreClosing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_Branch" Association="Self.FK_LoanRepayment_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_Client" Association="Self.FK_LoanRepayment_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanApplication" Association="Self.FK_LoanRepayment_LoanApplication">
+            <End Role="LoanApplication" EntitySet="LoanApplication" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanCycle" Association="Self.FK_LoanRepayment_LoanCycle">
+            <End Role="LoanCycle" EntitySet="LoanCycle" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanDisbursement" Association="Self.FK_LoanRepayment_LoanDisbursement">
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursement" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanEMISchedule" Association="Self.FK_LoanRepayment_LoanEMISchedule">
+            <End Role="LoanEMISchedule" EntitySet="LoanEMISchedule" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanRepaymentStatus" Association="Self.FK_LoanRepayment_LoanRepaymentStatus">
+            <End Role="LoanRepaymentStatus" EntitySet="LoanRepaymentStatus" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_User" Association="Self.FK_LoanRepayment_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AasthaFinanceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BranchAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BranchContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Branch" FromRole="Branch" ToRole="Client" />
+          <NavigationProperty Name="LoanApplications" Relationship="Self.FK_LoanApplication_Branch" FromRole="Branch" ToRole="LoanApplication" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_Branch" FromRole="Branch" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_Branch" FromRole="Branch" ToRole="LoanRepayment" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ClientCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="PersonalContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientImage" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BranchId" Type="Int32" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_Client_Branch" FromRole="Client" ToRole="Branch" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Client_User" FromRole="Client" ToRole="User" />
+          <NavigationProperty Name="LoanApplications" Relationship="Self.FK_LoanApplication_Client" FromRole="Client" ToRole="LoanApplication" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_Client" FromRole="Client" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_Client" FromRole="Client" ToRole="LoanRepayment" />
+        </EntityType>
+        <EntityType Name="Freequency">
+          <Key>
+            <PropertyRef Name="FreequencyId" />
+          </Key>
+          <Property Name="FreequencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Freequency1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanApplications" Relationship="Self.FK_LoanApplication_Freequency" FromRole="Freequency" ToRole="LoanApplication" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_Freequency" FromRole="Freequency" ToRole="LoanDisbursement" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gender1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="InterestModel">
+          <Key>
+            <PropertyRef Name="InterestModelId" />
+          </Key>
+          <Property Name="InterestModelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="interestModel1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanApplications" Relationship="Self.FK_LoanApplication_InterestModel" FromRole="InterestModel" ToRole="LoanApplication" />
+        </EntityType>
+        <EntityType Name="LoanApplication">
+          <Key>
+            <PropertyRef Name="LoanApplicationId" />
+          </Key>
+          <Property Name="LoanApplicationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanApplicationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoanApplicationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastMonthIncome" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IsKYCVerified" Type="Boolean" />
+          <Property Name="EMIStartDate" Type="DateTime" Precision="3" />
+          <Property Name="LoanAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LoanPurpose" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GuarantorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GuarantorMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InterestRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="InterestModelId" Type="Int32" />
+          <Property Name="ReasonForLoan" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="FreequencyId" Type="Int32" />
+          <Property Name="LoanApplicationStatusId" Type="Int32" />
+          <Property Name="ClientId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_LoanApplication_Branch" FromRole="LoanApplication" ToRole="Branch" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_LoanApplication_Client" FromRole="LoanApplication" ToRole="Client" />
+          <NavigationProperty Name="Freequency" Relationship="Self.FK_LoanApplication_Freequency" FromRole="LoanApplication" ToRole="Freequency" />
+          <NavigationProperty Name="InterestModel" Relationship="Self.FK_LoanApplication_InterestModel" FromRole="LoanApplication" ToRole="InterestModel" />
+          <NavigationProperty Name="LoanApplicationStatu" Relationship="Self.FK_LoanApplication_LoanApplicationStatus" FromRole="LoanApplication" ToRole="LoanApplicationStatus" />
+          <NavigationProperty Name="User" Relationship="Self.FK_LoanApplication_User" FromRole="LoanApplication" ToRole="User" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_LoanApplication" FromRole="LoanApplication" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_LoanApplication" FromRole="LoanApplication" ToRole="LoanRepayment" />
+        </EntityType>
+        <EntityType Name="LoanApplicationStatu">
+          <Key>
+            <PropertyRef Name="LoanApplicationStatusId" />
+          </Key>
+          <Property Name="LoanApplicationStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanApplicationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanApplications" Relationship="Self.FK_LoanApplication_LoanApplicationStatus" FromRole="LoanApplicationStatus" ToRole="LoanApplication" />
+        </EntityType>
+        <EntityType Name="LoanCycle">
+          <Key>
+            <PropertyRef Name="LoanCycleId" />
+          </Key>
+          <Property Name="LoanCycleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanCycle1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_LoanCycle" FromRole="LoanCycle" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_LoanCycle" FromRole="LoanCycle" ToRole="LoanRepayment" />
+        </EntityType>
+        <EntityType Name="LoanDisbursement">
+          <Key>
+            <PropertyRef Name="LoanDisbursementId" />
+          </Key>
+          <Property Name="LoanDisbursementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="ClientId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="LoanApplicationId" Type="Int32" />
+          <Property Name="PaymentModeId" Type="Int32" />
+          <Property Name="DisbursementCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DisbursmentDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoanCycleId" Type="Int32" />
+          <Property Name="ProposedAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ProcessingCharge" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ActualPaidAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EMIStartDate" Type="DateTime" Precision="3" />
+          <Property Name="LoanRepayFreequencyId" Type="Int32" />
+          <Property Name="InterestRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LoanEMI" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TimePeriod" Type="Int32" />
+          <Property Name="TotalRepayAmountWithInterest" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LoanStatusId" Type="Int32" />
+          <Property Name="LoanNotes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LoanRepayBalance" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_LoanDisbursement_Branch" FromRole="LoanDisbursement" ToRole="Branch" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_LoanDisbursement_Client" FromRole="LoanDisbursement" ToRole="Client" />
+          <NavigationProperty Name="Freequency" Relationship="Self.FK_LoanDisbursement_Freequency" FromRole="LoanDisbursement" ToRole="Freequency" />
+          <NavigationProperty Name="LoanApplication" Relationship="Self.FK_LoanDisbursement_LoanApplication" FromRole="LoanDisbursement" ToRole="LoanApplication" />
+          <NavigationProperty Name="LoanCycle" Relationship="Self.FK_LoanDisbursement_LoanCycle" FromRole="LoanDisbursement" ToRole="LoanCycle" />
+          <NavigationProperty Name="LoanStatu" Relationship="Self.FK_LoanDisbursement_LoanStatus" FromRole="LoanDisbursement" ToRole="LoanStatus" />
+          <NavigationProperty Name="PaymentMode" Relationship="Self.FK_LoanDisbursement_PaymentMode" FromRole="LoanDisbursement" ToRole="PaymentMode" />
+          <NavigationProperty Name="User" Relationship="Self.FK_LoanDisbursement_User" FromRole="LoanDisbursement" ToRole="User" />
+          <NavigationProperty Name="LoanEMISchedules" Relationship="Self.FK_LoanEMISchedule_LoanDisbursement" FromRole="LoanDisbursement" ToRole="LoanEMISchedule" />
+          <NavigationProperty Name="LoanPreClosings" Relationship="Self.FK_LoanPreClosing_LoanDisbursement" FromRole="LoanDisbursement" ToRole="LoanPreClosing" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_LoanDisbursement" FromRole="LoanDisbursement" ToRole="LoanRepayment" />
+        </EntityType>
+        <EntityType Name="LoanEMISchedule">
+          <Key>
+            <PropertyRef Name="LoanEMIScheduleId" />
+          </Key>
+          <Property Name="LoanEMIScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanDisbursementId" Type="Int32" />
+          <Property Name="ScheduleDate" Type="DateTime" Precision="3" />
+          <Property Name="EMIDate" Type="DateTime" Precision="0" />
+          <Property Name="EMI" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PrincipleAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="InterestAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanDisbursement" Relationship="Self.FK_LoanEMISchedule_LoanDisbursement" FromRole="LoanEMISchedule" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_LoanEMISchedule" FromRole="LoanEMISchedule" ToRole="LoanRepayment" />
+        </EntityType>
+        <EntityType Name="LoanPreClosing">
+          <Key>
+            <PropertyRef Name="LoanPreClosingId" />
+          </Key>
+          <Property Name="LoanPreClosingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanDisbursementId" Type="Int32" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="0" />
+          <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PreClosingCharges" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ActualLoanBalance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalPaid" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="LoanDisbursement" Relationship="Self.FK_LoanPreClosing_LoanDisbursement" FromRole="LoanPreClosing" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="User" Relationship="Self.FK_LoanPreClosing_User" FromRole="LoanPreClosing" ToRole="User" />
+        </EntityType>
+        <EntityType Name="LoanRepayment">
+          <Key>
+            <PropertyRef Name="LoanRepaymentId" />
+          </Key>
+          <Property Name="LoanRepaymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="ClientId" Type="Int32" />
+          <Property Name="LoanApplicationId" Type="Int32" />
+          <Property Name="LoanDisbursementId" Type="Int32" />
+          <Property Name="LoanCycleId" Type="Int32" />
+          <Property Name="LoanEMIScheduletId" Type="Int32" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+          <Property Name="LateFees" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="BalanceAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RepaymentStatusId" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ActualAmount" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_LoanRepayment_Branch" FromRole="LoanRepayment" ToRole="Branch" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_LoanRepayment_Client" FromRole="LoanRepayment" ToRole="Client" />
+          <NavigationProperty Name="LoanApplication" Relationship="Self.FK_LoanRepayment_LoanApplication" FromRole="LoanRepayment" ToRole="LoanApplication" />
+          <NavigationProperty Name="LoanCycle" Relationship="Self.FK_LoanRepayment_LoanCycle" FromRole="LoanRepayment" ToRole="LoanCycle" />
+          <NavigationProperty Name="LoanDisbursement" Relationship="Self.FK_LoanRepayment_LoanDisbursement" FromRole="LoanRepayment" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="LoanEMISchedule" Relationship="Self.FK_LoanRepayment_LoanEMISchedule" FromRole="LoanRepayment" ToRole="LoanEMISchedule" />
+          <NavigationProperty Name="LoanRepaymentStatu" Relationship="Self.FK_LoanRepayment_LoanRepaymentStatus" FromRole="LoanRepayment" ToRole="LoanRepaymentStatus" />
+          <NavigationProperty Name="User" Relationship="Self.FK_LoanRepayment_User" FromRole="LoanRepayment" ToRole="User" />
+        </EntityType>
+        <EntityType Name="LoanRepaymentStatu">
+          <Key>
+            <PropertyRef Name="LoanRepaymentStatusId" />
+          </Key>
+          <Property Name="LoanRepaymentStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanRepaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_LoanRepaymentStatus" FromRole="LoanRepaymentStatus" ToRole="LoanRepayment" />
+        </EntityType>
+        <EntityType Name="LoanStatu">
+          <Key>
+            <PropertyRef Name="LoanStatusId" />
+          </Key>
+          <Property Name="LoanStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_LoanStatus" FromRole="LoanStatus" ToRole="LoanDisbursement" />
+        </EntityType>
+        <EntityType Name="PaymentMode">
+          <Key>
+            <PropertyRef Name="PaymentModeId" />
+          </Key>
+          <Property Name="PaymentModeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentMode1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_PaymentMode" FromRole="PaymentMode" ToRole="LoanDisbursement" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Client_User" FromRole="User" ToRole="Client" />
+          <NavigationProperty Name="LoanApplications" Relationship="Self.FK_LoanApplication_User" FromRole="User" ToRole="LoanApplication" />
+          <NavigationProperty Name="LoanDisbursements" Relationship="Self.FK_LoanDisbursement_User" FromRole="User" ToRole="LoanDisbursement" />
+          <NavigationProperty Name="LoanPreClosings" Relationship="Self.FK_LoanPreClosing_User" FromRole="User" ToRole="LoanPreClosing" />
+          <NavigationProperty Name="LoanRepayments" Relationship="Self.FK_LoanRepayment_User" FromRole="User" ToRole="LoanRepayment" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Thread" />
+            <PropertyRef Name="Level" />
+            <PropertyRef Name="Logger" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Thread" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Logger" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Client_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_Freequency">
+          <End Role="Freequency" Type="Self.Freequency" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freequency">
+              <PropertyRef Name="FreequencyId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="FreequencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_Freequency">
+          <End Role="Freequency" Type="Self.Freequency" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freequency">
+              <PropertyRef Name="FreequencyId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanRepayFreequencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_InterestModel">
+          <End Role="InterestModel" Type="Self.InterestModel" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterestModel">
+              <PropertyRef Name="InterestModelId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="InterestModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_LoanApplicationStatus">
+          <End Role="LoanApplicationStatus" Type="Self.LoanApplicationStatu" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanApplicationStatus">
+              <PropertyRef Name="LoanApplicationStatusId" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="LoanApplicationStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanApplication_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanApplication">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_LoanApplication">
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanApplication">
+              <PropertyRef Name="LoanApplicationId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanApplication">
+          <End Role="LoanApplication" Type="Self.LoanApplication" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanApplication">
+              <PropertyRef Name="LoanApplicationId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_LoanCycle">
+          <End Role="LoanCycle" Type="Self.LoanCycle" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanCycle">
+              <PropertyRef Name="LoanCycleId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanCycle">
+          <End Role="LoanCycle" Type="Self.LoanCycle" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanCycle">
+              <PropertyRef Name="LoanCycleId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_LoanStatus">
+          <End Role="LoanStatus" Type="Self.LoanStatu" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanStatus">
+              <PropertyRef Name="LoanStatusId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="LoanStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_PaymentMode">
+          <End Role="PaymentMode" Type="Self.PaymentMode" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMode">
+              <PropertyRef Name="PaymentModeId" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="PaymentModeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanDisbursement_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanDisbursement">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanEMISchedule_LoanDisbursement">
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="0..1" />
+          <End Role="LoanEMISchedule" Type="Self.LoanEMISchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanDisbursement">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Principal>
+            <Dependent Role="LoanEMISchedule">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanPreClosing_LoanDisbursement">
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="0..1" />
+          <End Role="LoanPreClosing" Type="Self.LoanPreClosing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanDisbursement">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Principal>
+            <Dependent Role="LoanPreClosing">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanDisbursement">
+          <End Role="LoanDisbursement" Type="Self.LoanDisbursement" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanDisbursement">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanDisbursementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanEMISchedule">
+          <End Role="LoanEMISchedule" Type="Self.LoanEMISchedule" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanEMISchedule">
+              <PropertyRef Name="LoanEMIScheduleId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="LoanEMIScheduletId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanPreClosing_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanPreClosing" Type="Self.LoanPreClosing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanPreClosing">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_LoanRepaymentStatus">
+          <End Role="LoanRepaymentStatus" Type="Self.LoanRepaymentStatu" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanRepaymentStatus">
+              <PropertyRef Name="LoanRepaymentStatusId" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="RepaymentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanRepayment_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoanRepayment" Type="Self.LoanRepayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoanRepayment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AasthaFinanceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Freequencies" EntityType="Self.Freequency" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="InterestModels" EntityType="Self.InterestModel" />
+          <EntitySet Name="LoanApplications" EntityType="Self.LoanApplication" />
+          <EntitySet Name="LoanApplicationStatus" EntityType="Self.LoanApplicationStatu" />
+          <EntitySet Name="LoanCycles" EntityType="Self.LoanCycle" />
+          <EntitySet Name="LoanDisbursements" EntityType="Self.LoanDisbursement" />
+          <EntitySet Name="LoanEMISchedules" EntityType="Self.LoanEMISchedule" />
+          <EntitySet Name="LoanPreClosings" EntityType="Self.LoanPreClosing" />
+          <EntitySet Name="LoanRepayments" EntityType="Self.LoanRepayment" />
+          <EntitySet Name="LoanRepaymentStatus" EntityType="Self.LoanRepaymentStatu" />
+          <EntitySet Name="LoanStatus" EntityType="Self.LoanStatu" />
+          <EntitySet Name="PaymentModes" EntityType="Self.PaymentMode" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Logs" EntityType="Self.Log" />
+          <AssociationSet Name="FK_Client_Branch" Association="Self.FK_Client_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_Branch" Association="Self.FK_LoanApplication_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_Branch" Association="Self.FK_LoanDisbursement_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_Branch" Association="Self.FK_LoanRepayment_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_Client" Association="Self.FK_LoanApplication_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_Client" Association="Self.FK_LoanDisbursement_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_Client" Association="Self.FK_LoanRepayment_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_Freequency" Association="Self.FK_LoanApplication_Freequency">
+            <End Role="Freequency" EntitySet="Freequencies" />
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_Freequency" Association="Self.FK_LoanDisbursement_Freequency">
+            <End Role="Freequency" EntitySet="Freequencies" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_InterestModel" Association="Self.FK_LoanApplication_InterestModel">
+            <End Role="InterestModel" EntitySet="InterestModels" />
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_LoanApplicationStatus" Association="Self.FK_LoanApplication_LoanApplicationStatus">
+            <End Role="LoanApplicationStatus" EntitySet="LoanApplicationStatus" />
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanApplication_User" Association="Self.FK_LoanApplication_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_LoanApplication" Association="Self.FK_LoanDisbursement_LoanApplication">
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanApplication" Association="Self.FK_LoanRepayment_LoanApplication">
+            <End Role="LoanApplication" EntitySet="LoanApplications" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_LoanCycle" Association="Self.FK_LoanDisbursement_LoanCycle">
+            <End Role="LoanCycle" EntitySet="LoanCycles" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanCycle" Association="Self.FK_LoanRepayment_LoanCycle">
+            <End Role="LoanCycle" EntitySet="LoanCycles" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_LoanStatus" Association="Self.FK_LoanDisbursement_LoanStatus">
+            <End Role="LoanStatus" EntitySet="LoanStatus" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_PaymentMode" Association="Self.FK_LoanDisbursement_PaymentMode">
+            <End Role="PaymentMode" EntitySet="PaymentModes" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanDisbursement_User" Association="Self.FK_LoanDisbursement_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanEMISchedule_LoanDisbursement" Association="Self.FK_LoanEMISchedule_LoanDisbursement">
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+            <End Role="LoanEMISchedule" EntitySet="LoanEMISchedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanPreClosing_LoanDisbursement" Association="Self.FK_LoanPreClosing_LoanDisbursement">
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+            <End Role="LoanPreClosing" EntitySet="LoanPreClosings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanDisbursement" Association="Self.FK_LoanRepayment_LoanDisbursement">
+            <End Role="LoanDisbursement" EntitySet="LoanDisbursements" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanEMISchedule" Association="Self.FK_LoanRepayment_LoanEMISchedule">
+            <End Role="LoanEMISchedule" EntitySet="LoanEMISchedules" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanPreClosing_User" Association="Self.FK_LoanPreClosing_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="LoanPreClosing" EntitySet="LoanPreClosings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_LoanRepaymentStatus" Association="Self.FK_LoanRepayment_LoanRepaymentStatus">
+            <End Role="LoanRepaymentStatus" EntitySet="LoanRepaymentStatus" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanRepayment_User" Association="Self.FK_LoanRepayment_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="LoanRepayment" EntitySet="LoanRepayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="GetCollectionRecipt" ReturnType="Collection(AasthaFinanceModel.GetCollectionRecipt_Result)">
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetPrintScheduleByDID" ReturnType="Collection(AasthaFinanceModel.GetPrintScheduleByDID_Result)">
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+            <Parameter Name="ClientId" Mode="In" Type="Int32" />
+            <Parameter Name="LoanApplicationId" Mode="In" Type="Int32" />
+            <Parameter Name="LoanDisbursementiD" Mode="In" Type="Int32" />
+            <Parameter Name="LoanCycleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(AasthaFinanceModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(AasthaFinanceModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="GetCollectionRecipt_Result">
+          <Property Type="String" Name="ClientCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ClientName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PersonalContact" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="EMIDate" Nullable="true" />
+          <Property Type="Decimal" Name="EMI" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PrincipleAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="InterestAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Balance" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Notes" Nullable="true" />
+          <Property Type="String" Name="Signature" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="Additonal_Remark" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="GetPrintScheduleByDID_Result">
+          <Property Type="String" Name="BranchCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ClientCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ClientName" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="ScheduleDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EMIDate" Nullable="true" />
+          <Property Type="Decimal" Name="EMI" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int64" Name="EMINumber" Nullable="true" />
+          <Property Type="Decimal" Name="PrincipleAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="InterestAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Balance" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="AmountPaid" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ActualPaidAmount" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AasthaFinanceModelStoreContainer" CdmEntityContainer="AasthaFinanceEntities">
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+                <ScalarProperty Name="BranchContact" ColumnName="BranchContact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="CurrentAddress" ColumnName="CurrentAddress" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="PersonalContact" ColumnName="PersonalContact" />
+                <ScalarProperty Name="OfficeContact" ColumnName="OfficeContact" />
+                <ScalarProperty Name="ClientImage" ColumnName="ClientImage" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Freequencies">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.Freequency">
+              <MappingFragment StoreEntitySet="Freequency">
+                <ScalarProperty Name="FreequencyId" ColumnName="FreequencyId" />
+                <ScalarProperty Name="Freequency1" ColumnName="Freequency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Gender1" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterestModels">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.InterestModel">
+              <MappingFragment StoreEntitySet="InterestModel">
+                <ScalarProperty Name="InterestModelId" ColumnName="InterestModelId" />
+                <ScalarProperty Name="interestModel1" ColumnName="interestModel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanApplications">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanApplication">
+              <MappingFragment StoreEntitySet="LoanApplication">
+                <ScalarProperty Name="LoanApplicationId" ColumnName="LoanApplicationId" />
+                <ScalarProperty Name="LoanApplicationNo" ColumnName="LoanApplicationNo" />
+                <ScalarProperty Name="LoanApplicationDate" ColumnName="LoanApplicationDate" />
+                <ScalarProperty Name="LastMonthIncome" ColumnName="LastMonthIncome" />
+                <ScalarProperty Name="IsKYCVerified" ColumnName="IsKYCVerified" />
+                <ScalarProperty Name="EMIStartDate" ColumnName="EMIStartDate" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="LoanPurpose" ColumnName="LoanPurpose" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankAccountNo" ColumnName="BankAccountNo" />
+                <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="GuarantorName" ColumnName="GuarantorName" />
+                <ScalarProperty Name="GuarantorMobile" ColumnName="GuarantorMobile" />
+                <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+                <ScalarProperty Name="InterestModelId" ColumnName="InterestModelId" />
+                <ScalarProperty Name="ReasonForLoan" ColumnName="ReasonForLoan" />
+                <ScalarProperty Name="FreequencyId" ColumnName="FreequencyId" />
+                <ScalarProperty Name="LoanApplicationStatusId" ColumnName="LoanApplicationStatusId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanApplicationStatus">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanApplicationStatu">
+              <MappingFragment StoreEntitySet="LoanApplicationStatus">
+                <ScalarProperty Name="LoanApplicationStatusId" ColumnName="LoanApplicationStatusId" />
+                <ScalarProperty Name="LoanApplicationStatus" ColumnName="LoanApplicationStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanCycles">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanCycle">
+              <MappingFragment StoreEntitySet="LoanCycle">
+                <ScalarProperty Name="LoanCycleId" ColumnName="LoanCycleId" />
+                <ScalarProperty Name="LoanCycle1" ColumnName="LoanCycle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanDisbursements">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanDisbursement">
+              <MappingFragment StoreEntitySet="LoanDisbursement">
+                <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoanApplicationId" ColumnName="LoanApplicationId" />
+                <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+                <ScalarProperty Name="DisbursementCode" ColumnName="DisbursementCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="DisbursmentDate" ColumnName="DisbursmentDate" />
+                <ScalarProperty Name="PaymentChequeNo" ColumnName="PaymentChequeNo" />
+                <ScalarProperty Name="LoanCycleId" ColumnName="LoanCycleId" />
+                <ScalarProperty Name="ProposedAmount" ColumnName="ProposedAmount" />
+                <ScalarProperty Name="ProcessingCharge" ColumnName="ProcessingCharge" />
+                <ScalarProperty Name="ActualPaidAmount" ColumnName="ActualPaidAmount" />
+                <ScalarProperty Name="EMIStartDate" ColumnName="EMIStartDate" />
+                <ScalarProperty Name="LoanRepayFreequencyId" ColumnName="LoanRepayFreequencyId" />
+                <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+                <ScalarProperty Name="LoanEMI" ColumnName="LoanEMI" />
+                <ScalarProperty Name="TimePeriod" ColumnName="TimePeriod" />
+                <ScalarProperty Name="TotalRepayAmountWithInterest" ColumnName="TotalRepayAmountWithInterest" />
+                <ScalarProperty Name="LoanStatusId" ColumnName="LoanStatusId" />
+                <ScalarProperty Name="LoanNotes" ColumnName="LoanNotes" />
+                <ScalarProperty Name="LoanRepayBalance" ColumnName="LoanRepayBalance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanEMISchedules">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanEMISchedule">
+              <MappingFragment StoreEntitySet="LoanEMISchedule">
+                <ScalarProperty Name="LoanEMIScheduleId" ColumnName="LoanEMIScheduleId" />
+                <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+                <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+                <ScalarProperty Name="EMIDate" ColumnName="EMIDate" />
+                <ScalarProperty Name="EMI" ColumnName="EMI" />
+                <ScalarProperty Name="PrincipleAmount" ColumnName="PrincipleAmount" />
+                <ScalarProperty Name="InterestAmount" ColumnName="InterestAmount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanPreClosings">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanPreClosing">
+              <MappingFragment StoreEntitySet="LoanPreClosing">
+                <ScalarProperty Name="LoanPreClosingId" ColumnName="LoanPreClosingId" />
+                <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="PreClosingCharges" ColumnName="PreClosingCharges" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActualLoanBalance" ColumnName="ActualLoanBalance" />
+                <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanRepayments">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanRepayment">
+              <MappingFragment StoreEntitySet="LoanRepayment">
+                <ScalarProperty Name="LoanRepaymentId" ColumnName="LoanRepaymentId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="LoanApplicationId" ColumnName="LoanApplicationId" />
+                <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+                <ScalarProperty Name="LoanCycleId" ColumnName="LoanCycleId" />
+                <ScalarProperty Name="LoanEMIScheduletId" ColumnName="LoanEMIScheduletId" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="LateFees" ColumnName="LateFees" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="BalanceAmount" ColumnName="BalanceAmount" />
+                <ScalarProperty Name="RepaymentStatusId" ColumnName="RepaymentStatusId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActualAmount" ColumnName="ActualAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanRepaymentStatus">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanRepaymentStatu">
+              <MappingFragment StoreEntitySet="LoanRepaymentStatus">
+                <ScalarProperty Name="LoanRepaymentStatusId" ColumnName="LoanRepaymentStatusId" />
+                <ScalarProperty Name="LoanRepaymentStatus" ColumnName="LoanRepaymentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanStatus">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.LoanStatu">
+              <MappingFragment StoreEntitySet="LoanStatus">
+                <ScalarProperty Name="LoanStatusId" ColumnName="LoanStatusId" />
+                <ScalarProperty Name="LoanStatus" ColumnName="LoanStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentModes">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.PaymentMode">
+              <MappingFragment StoreEntitySet="PaymentMode">
+                <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+                <ScalarProperty Name="PaymentMode1" ColumnName="PaymentMode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="AasthaFinanceModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCollectionRecipt" FunctionName="AasthaFinanceModel.Store.GetCollectionRecipt">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AasthaFinanceModel.GetCollectionRecipt_Result">
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="PersonalContact" ColumnName="PersonalContact" />
+                <ScalarProperty Name="EMIDate" ColumnName="EMIDate" />
+                <ScalarProperty Name="EMI" ColumnName="EMI" />
+                <ScalarProperty Name="PrincipleAmount" ColumnName="PrincipleAmount" />
+                <ScalarProperty Name="InterestAmount" ColumnName="InterestAmount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="Additonal_Remark" ColumnName="Additonal Remark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPrintScheduleByDID" FunctionName="AasthaFinanceModel.Store.GetPrintScheduleByDID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AasthaFinanceModel.GetPrintScheduleByDID_Result">
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+                <ScalarProperty Name="EMIDate" ColumnName="EMIDate" />
+                <ScalarProperty Name="EMI" ColumnName="EMI" />
+                <ScalarProperty Name="EMINumber" ColumnName="EMINumber" />
+                <ScalarProperty Name="PrincipleAmount" ColumnName="PrincipleAmount" />
+                <ScalarProperty Name="InterestAmount" ColumnName="InterestAmount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="ActualPaidAmount" ColumnName="ActualPaidAmount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="AasthaFinanceModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="AasthaFinanceModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="AasthaFinanceModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="AasthaFinanceModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AasthaFinanceModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="AasthaFinanceModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AasthaFinanceModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="AasthaFinanceModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="AasthaFinanceModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,302 @@
+﻿@model AasthaFinance.Models.Report.CollectionDetail
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "GetCollectionDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Collection Detail</li>
+</ol>
+
+<h2 style="font-family:Lucida Calligraphy">Collection Detail</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Collection Detail</h2></div>
+        <div class="card-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12 text-danger">
+                            <ul id="errorMessage"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.BranchId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownList("BranchId", null, String.Empty, new { @id = "ddlBranch", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BranchId)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ClientId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownList("ClientId", null, String.Empty, new { @id = "ddlClient", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ClientId)
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.StartDate)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.StartDate)
+                                @Html.ValidationMessageFor(model => model.StartDate)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.EndDate)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.EndDate)
+                                @Html.ValidationMessageFor(model => model.EndDate)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <br />
+                            <p>
+                                <input type="submit" id="btnSubmit" class="btn btn-primary" value="Search" />
+                                <input id="btnReset" type="button" class="btn btn-primary" value="Reset" />
+                                <input type="button" id="btnDownload" class="btn btn-primary" value="Download Report" onclick="location.href='@Url.Action("PDF", "Collection", new { method = "POST", StartDate = Model.StartDate, EndDate = Model.EndDate, BranchId = Model.BranchId, ClientId = Model.ClientId })'" />
+
+                                <input type="button" id="btnPrintTodayCollection" class="btn btn-primary" value="Print Today's Collection recipt" onclick="location.href='@Url.Action("PrintTodayCollectionReciptsForBranch", "Collection", new { method = "POST", StartDate = Model.StartDate, EndDate = Model.EndDate, BranchId = Model.BranchId, ClientId = Model.ClientId })'" />
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<br />
+<br />
+
+@if (Model != null && Model.isExist)
+{
+
+    <table class="table">
+        <tr>
+
+            <th>
+                Branch
+            </th>
+            <th>
+                Client Code
+            </th>
+            <th>
+                Client Name
+            </th>
+            <th>
+                Application No
+            </th>
+            <th>
+                Disbursement Code
+            </th>
+            <th>
+                EMI
+            </th>
+            <th>
+                AmountPaid
+            </th>
+            <th>
+                ActualAmount
+            </th>
+            <th>
+                @Html.ActionLink("Payment Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("Notes", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model.LoanRepayments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Branch.BranchCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.ClientCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoanApplication.LoanApplicationNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoanDisbursement.DisbursementCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoanEMISchedule.EMI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountPaid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+}
+
+@if (Model != null && Model.isExist)
+{
+    @: Page @(Model.LoanRepayments.PageCount < Model.LoanRepayments.PageNumber ? 0 : Model.LoanRepayments.PageNumber) of @Model.LoanRepayments.PageCount
+
+
+
+
+
+
+
+
+    @Html.PagedListPager(Model.LoanRepayments, page => Url.Action("GetCollectionDetail",
+        new { method = "POST", StartDate = Model.StartDate, EndDate = Model.EndDate, BranchId = Model.BranchId, ClientId = Model.ClientId, page }))
+}
+
+    @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+
+
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btnSubmit').click(function (e) {
+                var listOfErrors = $("#errorMessage");
+                listOfErrors.empty();
+                $('#ddlBranch').removeClass("hasError");
+                //$('#ddlClient').removeClass("hasError");
+
+                $('#StartDate').removeClass("hasError");
+                $('#EndDate').removeClass("hasError");
+
+                var isError = false;
+
+                if ($('#ddlBranch').val() == "" || $('#ddlBranch').val() == "0") {
+                    var msg = "Please select Branch.";
+                    listOfErrors.append('<li>' + msg + '</li>');
+                    $('#ddlBranch').addClass("hasError");
+                    isError = true;
+                }
+
+                //if ($('#ddlClient').val() == "" || $('#ddlClient').val() == "0") {
+                //    var msg = "Please select Client.";
+                //    listOfErrors.append('<li>' + msg + '</li>');
+                //    $('#ddlClient').addClass("hasError");
+                //    isError = true;
+                //}
+
+                if ($('#StartDate').val() == "" || $('#StartDate').val() == "0") {
+                    var msg = "Please Enter Start Date";
+                    listOfErrors.append('<li>' + msg + '</li>');
+                    $('#StartDate').addClass("hasError");
+                    isError = true;
+                }
+
+                if ($('#EndDate').val() == "" || $('#EndDate').val() == "0") {
+                    var msg = "Please Enter End Date";
+                    listOfErrors.append('<li>' + msg + '</li>');
+                    $('#EndDate').addClass("hasError");
+                    isError = true;
+                }
+
+                //Text start here
+
+                if (isError) {
+                    e.preventDefault();
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    return false;
+                }
+            });
+
+
+            $("#ddlBranch").change(function () {
+                $("#ddlClient").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("getClient")',
+
+                    dataType: 'json',
+
+                    data: { branchId: $("#ddlBranch").val() },
+
+
+                    success: function (states) {
+
+
+                        $.each(states, function (i, state) {
+                            $("#ddlClient").append('<option value="' + state.Value + '">' +
+                                 state.Text + '</option>');
+
+                        });
+                    },
+                    error: function (ex) {
+                        alert('Failed to retrieve Clients.' + ex);
+                    }
+                });
+                return false;
+            })
+
+
+            $("#btnReset").click(function () {
+
+                $('#ddlBranch').prop('selectedIndex', 0);
+                $('#ddlClient').prop('selectedIndex', 0);
+                $('#StartDate').prop('value', '');
+                $('#EndDate').prop('value', '');
+
+            });
+        });
+
+    </script>
+
+    <style>
+        .hasError {
+            border-color: #f83b3b;
+            border-width: 2px;
+            border-style: groove;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+        }
+    </style>

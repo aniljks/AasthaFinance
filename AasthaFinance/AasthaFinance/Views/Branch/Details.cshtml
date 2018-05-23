@@ -1,0 +1,53 @@
+﻿@model AasthaFinance.Data.Branch
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Branch Details</h2></div>
+        <div class="card-body">
+
+            <fieldset>
+                <legend>Branch</legend>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.BranchCode)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.BranchCode)
+                </div>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.BranchName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.BranchName)
+                </div>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.BranchAddress)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.BranchAddress)
+                </div>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.BranchContact)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.BranchContact)
+                </div>
+            </fieldset>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.BranchId }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+
+</div>

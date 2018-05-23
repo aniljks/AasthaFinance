@@ -1,0 +1,98 @@
+﻿@model AasthaFinance.Data.LoanEMISchedule
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>LoanEMISchedule</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LoanDisbursementId, "LoanDisbursement")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("LoanDisbursementId", String.Empty)
+            @Html.ValidationMessageFor(model => model.LoanDisbursementId)
+        </div>
+
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.ScheduleDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ScheduleDate)
+                @Html.ValidationMessageFor(model => model.ScheduleDate)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EMIDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EMIDate)
+                @Html.ValidationMessageFor(model => model.EMIDate)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EMI)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EMI)
+                @Html.ValidationMessageFor(model => model.EMI)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PrincipleAmount)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PrincipleAmount)
+                @Html.ValidationMessageFor(model => model.PrincipleAmount)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.InterestAmount)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.InterestAmount)
+                @Html.ValidationMessageFor(model => model.InterestAmount)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Balance)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Balance)
+                @Html.ValidationMessageFor(model => model.Balance)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Notes)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Notes)
+                @Html.ValidationMessageFor(model => model.Notes)
+            </div>*@
+
+        <div class="text-danger">
+            Message for Failure :
+            <p>
+                @ViewBag.Message
+            </p>
+        </div>
+
+        <p>
+            <input type="submit" value="Generate ReSchedule" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

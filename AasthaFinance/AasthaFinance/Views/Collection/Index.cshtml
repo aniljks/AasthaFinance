@@ -1,0 +1,110 @@
+﻿@model PagedList.IPagedList<AasthaFinance.Data.LoanRepayment>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="#">Reports</a>
+    </li>
+    <li class="breadcrumb-item active">Collection</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Collection</h2>
+<hr />
+
+
+@using (Html.BeginForm("Index", "Collection", FormMethod.Get))
+{    
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table">
+    <tr>
+
+        <th>
+            Branch
+        </th>
+        <th>
+            Client Code
+        </th>
+        <th>
+            Client Name
+        </th>
+        <th>
+            Application No
+        </th>
+        <th>
+            Disbursement Code
+        </th>        
+        <th>
+            EMI
+        </th>
+        <th>
+            AmountPaid
+        </th>   
+        <th>
+            ActualAmount
+        </th>
+        <th>
+            @Html.ActionLink("Payment Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Notes", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch.BranchCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ClientCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanApplication.LoanApplicationNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanDisbursement.DisbursementCode)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanEMISchedule.EMI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountPaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

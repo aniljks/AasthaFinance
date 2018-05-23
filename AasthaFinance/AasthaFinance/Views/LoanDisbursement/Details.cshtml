@@ -1,0 +1,170 @@
+﻿@model AasthaFinance.Data.LoanDisbursement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LoanDisbursement</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Branch.BranchCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Branch.BranchCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Client.ClientName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Client.ClientName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanApplication.LoanApplicationNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanApplication.LoanApplicationNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DisbursmentDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisbursmentDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentMode.PaymentMode1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentMode.PaymentMode1)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.DisbursementCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisbursementCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BankName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BankName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentChequeNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentChequeNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanCycle.LoanCycle1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanCycle.LoanCycle1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProposedAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProposedAmount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProcessingCharge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProcessingCharge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ActualPaidAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActualPaidAmount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMIStartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMIStartDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Freequency.Freequency1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Freequency.Freequency1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InterestRate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InterestRate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanEMI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanEMI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TimePeriod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimePeriod)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalRepayAmountWithInterest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalRepayAmountWithInterest)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanStatu.LoanStatus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanStatu.LoanStatus)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanNotes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanNotes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanRepayBalance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanRepayBalance)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LoanDisbursementId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

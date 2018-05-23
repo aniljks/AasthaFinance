@@ -1,0 +1,145 @@
+﻿@model AasthaFinance.Data.Client
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Detail of Client</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Detail of Client</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Detail of Client </h2></div>
+        <div class="card-body">
+            <fieldset>
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Branch.BranchCode)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Branch.BranchCode)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ClientName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ClientName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.FatherName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.CurrentAddress)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CurrentAddress)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Post)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Post)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.District)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.District)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.PinCode)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PinCode)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ClientCode)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ClientCode)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Gender.Gender1)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Gender.Gender1)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.PersonalContact)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PersonalContact)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.OfficeContact)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.OfficeContact)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ClientImage)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ClientImage)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.User.UserName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.User.UserName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.State)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.State)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Notes)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Notes)
+                </div>
+
+
+            </fieldset>
+
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }, new { @class = "btn btn-primary", style = "margin-right:5px;" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+
+        </div>
+    </div>
+</div>

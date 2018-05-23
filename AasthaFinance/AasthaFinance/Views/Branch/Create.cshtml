@@ -1,0 +1,92 @@
+﻿@model AasthaFinance.Data.Branch
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Add Branch</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Add Branch</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Add Branch</h2></div>
+        <div class="card-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.BranchCode)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.BranchCode, new { @Value=ViewBag.BranchCode, @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BranchCode)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.BranchName)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.BranchName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BranchName)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.BranchAddress)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.BranchAddress, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BranchAddress)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.BranchContact)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.BranchContact, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BranchContact)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <fieldset>
+                    <div class="form-group">
+                        <div class="form-row">
+
+                            <input type="submit" class="btn btn-primary" style="margin-right:5px;" value="Create" />
+
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+
+                        </div>
+                    </div>
+                </fieldset>
+            }
+
+
+
+        </div>
+    </div>
+</div>

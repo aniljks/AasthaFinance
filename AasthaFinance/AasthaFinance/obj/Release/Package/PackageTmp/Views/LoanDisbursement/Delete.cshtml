@@ -1,0 +1,202 @@
+﻿@model AasthaFinance.Data.LoanDisbursement
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Delete Disbursement</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Delete Disbursement</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Delete Disbursement </h2></div>
+        <div class="card-body">
+
+            <h3>Are you sure you want to delete disbursement?</h3>
+            <fieldset>               
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Branch.BranchCode)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Branch.BranchCode)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Client.ClientName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Client.ClientName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.User.UserName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.User.UserName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanApplication.LoanApplicationNo)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanApplication.LoanApplicationNo)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.DisbursmentDate)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.DisbursmentDate)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.PaymentMode.PaymentMode1)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PaymentMode.PaymentMode1)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.DisbursementCode)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.DisbursementCode)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.BankName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.BankName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.PaymentChequeNo)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PaymentChequeNo)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanCycle.LoanCycle1)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanCycle.LoanCycle1)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ProposedAmount)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ProposedAmount)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ProcessingCharge)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ProcessingCharge)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ActualPaidAmount)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ActualPaidAmount)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.EMIStartDate)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.EMIStartDate)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Freequency.Freequency1)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Freequency.Freequency1)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.InterestRate)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.InterestRate)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanEMI)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanEMI)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.TimePeriod)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.TimePeriod)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.TotalRepayAmountWithInterest)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.TotalRepayAmountWithInterest)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanStatu.LoanStatus)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanStatu.LoanStatus)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanNotes)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanNotes)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanRepayBalance)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanRepayBalance)
+                </div>
+            </fieldset>            
+            <fieldset>
+                <div class="form-group">
+                    <div class="form-row">
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <input type="submit" class="btn btn-danger" style="margin-right:5px;" value="Delete" />
+
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+                        }
+
+
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

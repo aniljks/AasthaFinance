@@ -1,0 +1,5 @@
+C:\Users\Parivdi\documents\visual studio 2013\Projects\AasthaFinance\EMICalculater\bin\Debug\EMICalculater.exe
+C:\Users\Parivdi\documents\visual studio 2013\Projects\AasthaFinance\EMICalculater\bin\Debug\EMICalculater.pdb
+C:\Users\Parivdi\documents\visual studio 2013\Projects\AasthaFinance\EMICalculater\obj\Debug\EMICalculater.csprojResolveAssemblyReference.cache
+C:\Users\Parivdi\documents\visual studio 2013\Projects\AasthaFinance\EMICalculater\obj\Debug\EMICalculater.exe
+C:\Users\Parivdi\documents\visual studio 2013\Projects\AasthaFinance\EMICalculater\obj\Debug\EMICalculater.pdb

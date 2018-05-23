@@ -1,0 +1,118 @@
+﻿@model AasthaFinance.Data.LoanRepayment
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>LoanRepayment</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Branch.BranchCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Branch.BranchCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Client.ClientName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Client.ClientName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanApplication.LoanApplicationNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanApplication.LoanApplicationNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanDisbursement.DisbursementCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanDisbursement.DisbursementCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanCycle.LoanCycle1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanCycle.LoanCycle1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanEMISchedule.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanEMISchedule.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LateFees)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LateFees)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AmountPaid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmountPaid)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BalanceAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BalanceAmount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanRepaymentStatu.LoanRepaymentStatus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanRepaymentStatu.LoanRepaymentStatus)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ActualAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActualAmount)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

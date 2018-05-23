@@ -1,0 +1,233 @@
+﻿@model IEnumerable<AasthaFinance.Data.LoanDisbursement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Loan Disbursement</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Loan Disbursement</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("Create New Disbursement", "Create", new { }, new { @class = "btn btn-primary" })
+</p>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Loan Disbursement
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Branch.BranchCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Client.ClientName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.User.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LoanApplication.LoanApplicationNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DisbursmentDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PaymentMode.PaymentMode1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DisbursementCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BankName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PaymentChequeNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LoanCycle.LoanCycle1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProposedAmount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProcessingCharge)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ActualPaidAmount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EMIStartDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Freequency.Freequency1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InterestRate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LoanEMI)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TimePeriod)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TotalRepayAmountWithInterest)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LoanStatu.LoanStatus)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LoanNotes)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LoanRepayBalance)
+                        </th>
+                        @*<th></th>*@
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Branch.BranchCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Client.ClientName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoanApplication.LoanApplicationNo)
+                            </td>
+                            <td>
+                                @Html.Label(@item.DisbursmentDate.Value.ToShortDateString())
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PaymentMode.PaymentMode1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DisbursementCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BankName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PaymentChequeNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoanCycle.LoanCycle1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProposedAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProcessingCharge)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ActualPaidAmount)
+                            </td>
+                            <td>
+                                @Html.Label(@item.EMIStartDate.Value.ToShortDateString())
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Freequency.Freequency1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InterestRate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoanEMI)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TimePeriod)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TotalRepayAmountWithInterest)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoanStatu.LoanStatus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoanNotes)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoanRepayBalance)
+                            </td>
+                            @*<td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.LoanDisbursementId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.LoanDisbursementId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.LoanDisbursementId })
+                                </td>*@
+                            <td>
+                                <a class="nav-link" href="@Url.Action("Edit", "LoanDisbursement", new { id = item.LoanDisbursementId })">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="nav-link" href="@Url.Action("Details", "LoanDisbursement", new { id = item.LoanDisbursementId })">
+                                    <i class="fa fa-info-circle"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="nav-link" style="color: red;" href="@Url.Action("Delete", "LoanDisbursement", new { id = item.LoanDisbursementId })">
+                                    <i class="fa fa-remove"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        $('tr').each(function (index) { //iterate over all table rows
+            if (index > 0) {
+                //skip header
+                debugger;
+                if ($.trim($(this).children('td:nth-child(20)').text()) == "Active")  //look for the 3rd td in each row. thats where your age is.
+                {
+                    //$(this).children('td:nth-child(20)').css("background-color", "green");
+                    //$(this).children('td:nth-child(20)').css("color", "green");
+                    $(this).css("color", "green");
+                }
+                else if ($.trim($(this).children('td:nth-child(20)').text()) == "Disputed") {
+                    $(this).css("color", "orange");
+                    //$(this).children('td:nth-child(20)').css("background-color", "yellow");
+                }
+                else {
+                    $(this).css("color", "red");
+                    //$(this).children('td:nth-child(20)').css("background-color", "red");
+                }
+            }
+        });
+
+    });
+</script>
+

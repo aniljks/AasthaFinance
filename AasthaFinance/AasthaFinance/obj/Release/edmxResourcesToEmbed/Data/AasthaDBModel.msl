@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AasthaFinanceModelStoreContainer" CdmEntityContainer="AasthaFinanceEntities">
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.Branch">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+          <ScalarProperty Name="BranchContact" ColumnName="BranchContact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="CurrentAddress" ColumnName="CurrentAddress" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="PersonalContact" ColumnName="PersonalContact" />
+          <ScalarProperty Name="OfficeContact" ColumnName="OfficeContact" />
+          <ScalarProperty Name="ClientImage" ColumnName="ClientImage" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Freequencies">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.Freequency">
+        <MappingFragment StoreEntitySet="Freequency">
+          <ScalarProperty Name="FreequencyId" ColumnName="FreequencyId" />
+          <ScalarProperty Name="Freequency1" ColumnName="Freequency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="Gender1" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterestModels">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.InterestModel">
+        <MappingFragment StoreEntitySet="InterestModel">
+          <ScalarProperty Name="InterestModelId" ColumnName="InterestModelId" />
+          <ScalarProperty Name="interestModel1" ColumnName="interestModel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanApplications">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanApplication">
+        <MappingFragment StoreEntitySet="LoanApplication">
+          <ScalarProperty Name="LoanApplicationId" ColumnName="LoanApplicationId" />
+          <ScalarProperty Name="LoanApplicationNo" ColumnName="LoanApplicationNo" />
+          <ScalarProperty Name="LoanApplicationDate" ColumnName="LoanApplicationDate" />
+          <ScalarProperty Name="LastMonthIncome" ColumnName="LastMonthIncome" />
+          <ScalarProperty Name="IsKYCVerified" ColumnName="IsKYCVerified" />
+          <ScalarProperty Name="EMIStartDate" ColumnName="EMIStartDate" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanPurpose" ColumnName="LoanPurpose" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="BankAccountNo" ColumnName="BankAccountNo" />
+          <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="GuarantorName" ColumnName="GuarantorName" />
+          <ScalarProperty Name="GuarantorMobile" ColumnName="GuarantorMobile" />
+          <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+          <ScalarProperty Name="InterestModelId" ColumnName="InterestModelId" />
+          <ScalarProperty Name="ReasonForLoan" ColumnName="ReasonForLoan" />
+          <ScalarProperty Name="FreequencyId" ColumnName="FreequencyId" />
+          <ScalarProperty Name="LoanApplicationStatusId" ColumnName="LoanApplicationStatusId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanApplicationStatus">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanApplicationStatu">
+        <MappingFragment StoreEntitySet="LoanApplicationStatus">
+          <ScalarProperty Name="LoanApplicationStatusId" ColumnName="LoanApplicationStatusId" />
+          <ScalarProperty Name="LoanApplicationStatus" ColumnName="LoanApplicationStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanCycles">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanCycle">
+        <MappingFragment StoreEntitySet="LoanCycle">
+          <ScalarProperty Name="LoanCycleId" ColumnName="LoanCycleId" />
+          <ScalarProperty Name="LoanCycle1" ColumnName="LoanCycle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanDisbursements">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanDisbursement">
+        <MappingFragment StoreEntitySet="LoanDisbursement">
+          <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoanApplicationId" ColumnName="LoanApplicationId" />
+          <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+          <ScalarProperty Name="DisbursementCode" ColumnName="DisbursementCode" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="DisbursmentDate" ColumnName="DisbursmentDate" />
+          <ScalarProperty Name="PaymentChequeNo" ColumnName="PaymentChequeNo" />
+          <ScalarProperty Name="LoanCycleId" ColumnName="LoanCycleId" />
+          <ScalarProperty Name="ProposedAmount" ColumnName="ProposedAmount" />
+          <ScalarProperty Name="ProcessingCharge" ColumnName="ProcessingCharge" />
+          <ScalarProperty Name="ActualPaidAmount" ColumnName="ActualPaidAmount" />
+          <ScalarProperty Name="EMIStartDate" ColumnName="EMIStartDate" />
+          <ScalarProperty Name="LoanRepayFreequencyId" ColumnName="LoanRepayFreequencyId" />
+          <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+          <ScalarProperty Name="LoanEMI" ColumnName="LoanEMI" />
+          <ScalarProperty Name="TimePeriod" ColumnName="TimePeriod" />
+          <ScalarProperty Name="TotalRepayAmountWithInterest" ColumnName="TotalRepayAmountWithInterest" />
+          <ScalarProperty Name="LoanStatusId" ColumnName="LoanStatusId" />
+          <ScalarProperty Name="LoanNotes" ColumnName="LoanNotes" />
+          <ScalarProperty Name="LoanRepayBalance" ColumnName="LoanRepayBalance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanEMISchedules">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanEMISchedule">
+        <MappingFragment StoreEntitySet="LoanEMISchedule">
+          <ScalarProperty Name="LoanEMIScheduleId" ColumnName="LoanEMIScheduleId" />
+          <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="EMIDate" ColumnName="EMIDate" />
+          <ScalarProperty Name="EMI" ColumnName="EMI" />
+          <ScalarProperty Name="PrincipleAmount" ColumnName="PrincipleAmount" />
+          <ScalarProperty Name="InterestAmount" ColumnName="InterestAmount" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanPreClosings">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanPreClosing">
+        <MappingFragment StoreEntitySet="LoanPreClosing">
+          <ScalarProperty Name="LoanPreClosingId" ColumnName="LoanPreClosingId" />
+          <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+          <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="PreClosingCharges" ColumnName="PreClosingCharges" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ActualLoanBalance" ColumnName="ActualLoanBalance" />
+          <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanRepayments">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanRepayment">
+        <MappingFragment StoreEntitySet="LoanRepayment">
+          <ScalarProperty Name="LoanRepaymentId" ColumnName="LoanRepaymentId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="LoanApplicationId" ColumnName="LoanApplicationId" />
+          <ScalarProperty Name="LoanDisbursementId" ColumnName="LoanDisbursementId" />
+          <ScalarProperty Name="LoanCycleId" ColumnName="LoanCycleId" />
+          <ScalarProperty Name="LoanEMIScheduletId" ColumnName="LoanEMIScheduletId" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="LateFees" ColumnName="LateFees" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="BalanceAmount" ColumnName="BalanceAmount" />
+          <ScalarProperty Name="RepaymentStatusId" ColumnName="RepaymentStatusId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ActualAmount" ColumnName="ActualAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanRepaymentStatus">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanRepaymentStatu">
+        <MappingFragment StoreEntitySet="LoanRepaymentStatus">
+          <ScalarProperty Name="LoanRepaymentStatusId" ColumnName="LoanRepaymentStatusId" />
+          <ScalarProperty Name="LoanRepaymentStatus" ColumnName="LoanRepaymentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanStatus">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.LoanStatu">
+        <MappingFragment StoreEntitySet="LoanStatus">
+          <ScalarProperty Name="LoanStatusId" ColumnName="LoanStatusId" />
+          <ScalarProperty Name="LoanStatus" ColumnName="LoanStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentModes">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.PaymentMode">
+        <MappingFragment StoreEntitySet="PaymentMode">
+          <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+          <ScalarProperty Name="PaymentMode1" ColumnName="PaymentMode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="AasthaFinanceModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Logger" ColumnName="Logger" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetCollectionRecipt" FunctionName="AasthaFinanceModel.Store.GetCollectionRecipt">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AasthaFinanceModel.GetCollectionRecipt_Result">
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="PersonalContact" ColumnName="PersonalContact" />
+          <ScalarProperty Name="EMIDate" ColumnName="EMIDate" />
+          <ScalarProperty Name="EMI" ColumnName="EMI" />
+          <ScalarProperty Name="PrincipleAmount" ColumnName="PrincipleAmount" />
+          <ScalarProperty Name="InterestAmount" ColumnName="InterestAmount" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="Additonal_Remark" ColumnName="Additonal Remark" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPrintScheduleByDID" FunctionName="AasthaFinanceModel.Store.GetPrintScheduleByDID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AasthaFinanceModel.GetPrintScheduleByDID_Result">
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="EMIDate" ColumnName="EMIDate" />
+          <ScalarProperty Name="EMI" ColumnName="EMI" />
+          <ScalarProperty Name="EMINumber" ColumnName="EMINumber" />
+          <ScalarProperty Name="PrincipleAmount" ColumnName="PrincipleAmount" />
+          <ScalarProperty Name="InterestAmount" ColumnName="InterestAmount" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="ActualPaidAmount" ColumnName="ActualPaidAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="AasthaFinanceModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="AasthaFinanceModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="AasthaFinanceModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="AasthaFinanceModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AasthaFinanceModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="AasthaFinanceModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AasthaFinanceModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="AasthaFinanceModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="AasthaFinanceModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

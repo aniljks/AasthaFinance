@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aa864570ea0e4a569be761fa5a496ce6" Name="Diagram1">
+        <EntityTypeShape EntityType="AasthaFinanceModel.Branch" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.Client" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.Freequency" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.Gender" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.InterestModel" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanApplication" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanApplicationStatu" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanCycle" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanDisbursement" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanEMISchedule" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanPreClosing" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanRepayment" Width="1.5" PointX="12" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanRepaymentStatu" Width="1.5" PointX="9.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.LoanStatu" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.PaymentMode" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.Role" Width="1.5" PointX="1.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.sysdiagram" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.User" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AasthaFinanceModel.Log" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_Client_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanApplication_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_Client_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanApplication_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanApplication_Freequency" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_Freequency" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanApplication_InterestModel" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanApplication_LoanApplicationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanApplication_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_LoanApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_LoanApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_LoanCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_LoanCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_LoanStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_PaymentMode" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanDisbursement_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanEMISchedule_LoanDisbursement" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanPreClosing_LoanDisbursement" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_LoanDisbursement" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_LoanEMISchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanPreClosing_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_LoanRepaymentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_LoanRepayment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AasthaFinanceModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

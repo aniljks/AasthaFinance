@@ -1,0 +1,181 @@
+﻿@model PagedList.PagedList<AasthaFinance.Data.LoanEMISchedule>
+
+@using PagedList;
+@using PagedList.Mvc;
+
+@*@model IEnumerable<AasthaFinance.Data.LoanEMISchedule>*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Loan EMI Schedule</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Loan EMI Schedule</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("Create Re-Schedule", "Create", new { }, new { @class = "btn btn-primary" })
+</p>
+
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Loan EMI Schedule
+    </div>
+
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "LoanEMISchedule", FormMethod.Post, new object { }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="form-row">
+                <div class="editor-label col-md-4">
+                    Loan Disbursement Code
+                </div>
+                <div class="editor-field col-md-4">
+                    @Html.DropDownList("LoanDisbursementId", null, String.Empty, new { @id = "ddlLoanDisbursement", @class = "form-control", @Styles = "width:300px;" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="editor-field col-md-4">
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+                @*<div class="editor-field col-md-6">
+                            <input type="button" id="btnPrint" value="Print Schedule" class="btn btn-primary" />
+                    </div>*@
+            </div>
+        }
+        <div style="margin-bottom:10px;"></div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        DisbursementCode
+                    </th>
+                    <th>
+                        ScheduleDate
+                    </th>
+                    <th>
+                        EMIDate
+                    </th>
+                    <th>
+                        EMI
+                    </th>
+                    <th>
+                        PrincipleAmount
+                    </th>
+                    <th>
+                        InterestAmount
+                    </th>
+                    <th>
+                        Balance
+                    </th>
+                    <th>
+                        Notes
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanDisbursement.DisbursementCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ScheduleDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EMIDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EMI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrincipleAmount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InterestAmount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Balance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.LoanEMIScheduleId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.LoanEMIScheduleId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.LoanEMIScheduleId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            <div>
+                @Html.PagedListPager(Model, page => Url.Action("Index", "LoanEMISchedule", new { page, pageSize = Model.PageSize, FormMethod.Post }))
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        //$('#ddlLoanDisbursement').on('change', function (event) {
+        //    debugger;
+        //    var form = $(event.target).parents('form');
+        //    form.submit();
+        //});
+
+        @*$("#ddlLoanDisbursement").change(function () {
+            debugger;
+            var form = $(event.target).parents('form');
+            form.submit();
+
+            debugger;
+            @*var disburseId = $("#ddlLoanDisbursement").val();
+
+            location.href = '@Url.Action("Index", "LoanEMISchedule", new { FormMethod.Post })' + "?disbursementId=" + disburseId;*@
+
+
+        @*this.form.submit('@Url.Action("Index")?disbursementId=' + disburseId);*@
+
+        @*$("#btnPrint").click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Print")',
+
+                dataType: 'json',
+
+                data: { disbursementId: $("#ddlLoanDisbursement").val() },
+
+
+                success: function (states) {
+
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve Schedule.' + ex);
+                }
+            });
+            return false;
+        });*@
+    });
+</script>

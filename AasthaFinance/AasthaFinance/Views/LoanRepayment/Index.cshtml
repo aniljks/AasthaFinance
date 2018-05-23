@@ -1,0 +1,155 @@
+﻿@model IEnumerable<AasthaFinance.Data.LoanRepayment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Loan Repayment</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Loan Repayment</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("Create New Repayment", "Create", "LoanRepayment", new { }, new { @class = "btn btn-primary" })
+</p>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Loan Repayment
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Branch.BranchCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Client.ClientName)
+                    </th>
+                    <th>
+                        Application No
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanDisbursement.DisbursementCode)
+                    </th>
+                    <th>
+                        LoanCycle 
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanEMISchedule.EMIDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PaymentDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LateFees)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AmountPaid)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BalanceAmount)
+                    </th>
+                    <th>
+                        RepaymentStatus
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Notes)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.User.UserName)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.ActualAmount)
+                    </th>
+                    @*<th></th>*@
+                    <th>Edit</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Branch.BranchCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Client.ClientName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanApplication.LoanApplicationNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanDisbursement.DisbursementCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanCycle.LoanCycle1)
+                        </td>
+                        <td>
+                            @Html.Label(item.LoanEMISchedule.EMIDate.Value.ToShortDateString())
+                        </td>
+                        <td>
+                            @Html.Label(item.PaymentDate.Value.ToShortDateString())
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LateFees)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AmountPaid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BalanceAmount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanRepaymentStatu.LoanRepaymentStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.User.UserName)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActualAmount)
+                        </td>
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.LoanRepaymentId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.LoanRepaymentId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.LoanRepaymentId })
+                            </td>*@
+                        <td>
+                            <a class="nav-link" href="@Url.Action("Edit", "LoanRepayment", new { id = item.LoanRepaymentId })">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="@Url.Action("Details", "LoanRepayment", new { id = item.LoanRepaymentId })">
+                                <i class="fa fa-info-circle"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="nav-link" style="color: red;" href="@Url.Action("Delete", "LoanRepayment", new { id = item.LoanRepaymentId })">
+                                <i class="fa fa-remove"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+
+</div>

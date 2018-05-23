@@ -1,0 +1,48 @@
+﻿@model AasthaFinance.Data.Branch
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Branch</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BranchCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BranchName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BranchAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BranchContact)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchContact)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,197 @@
+﻿@model IEnumerable<AasthaFinance.Data.LoanApplication>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Loan Application</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Loan Application</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("Create New Application", "Create", new { }, new { @class = "btn btn-primary" })
+</p>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Loan Application
+    </div>
+
+    <div class="card-body">
+        
+        @if (TempData["Message"] != null &&
+              TempData["isDeleted"] != null && !Convert.ToBoolean(TempData["isDeleted"]))
+        {
+            <div class="text-danger">
+                Message for Failure :
+                <p>
+                    @TempData["Message"]
+                </p>
+            </div>
+        }
+        else if (TempData["isDeleted"] != null && Convert.ToBoolean(TempData["isDeleted"]))
+        {
+            <div class="text-success">
+                <p>
+                    @TempData["Message"]
+                </p>
+            </div>
+        }
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Branch.BranchCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BranchName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Client.ClientName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanApplicationNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanApplicationDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanAmount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EMIStartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsKYCVerified)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BankName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BankAccountNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ChequeNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GuarantorName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GuarantorMobile)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InterestRate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InterestModel.interestModel1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Freequency.Freequency1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanApplicationStatu.LoanApplicationStatus)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Notes)
+                    </th>
+                    @*<th></th>*@
+                    <th>Edit</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Branch.BranchCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Branch.BranchName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Client.ClientName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanApplicationNo)
+                        </td>
+                        <td>
+                            @Html.Label(item.LoanApplicationDate.Value.ToShortDateString())
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanAmount)
+                        </td>
+                        <td>
+                            @Html.Label(item.EMIStartDate.Value.ToShortDateString())
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsKYCVerified)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BankName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BankAccountNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ChequeNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuarantorName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuarantorMobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InterestRate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InterestModel.interestModel1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Freequency.Freequency1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanApplicationStatu.LoanApplicationStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.LoanApplicationId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.LoanApplicationId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.LoanApplicationId })
+                            </td>*@
+                        <td>
+                            <a class="nav-link" href="@Url.Action("Edit", "LoanApplication", new { id = item.LoanApplicationId })">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="@Url.Action("Details", "LoanApplication", new { id = item.LoanApplicationId })">
+                                <i class="fa fa-info-circle"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="nav-link" style="color: red;" href="@Url.Action("Delete", "LoanApplication", new { id = item.LoanApplicationId })">
+                                <i class="fa fa-remove"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+
+</div>

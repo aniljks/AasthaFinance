@@ -1,0 +1,72 @@
+﻿@model AasthaFinance.Data.LoanEMISchedule
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LoanEMISchedule</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoanDisbursement.DisbursementCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoanDisbursement.DisbursementCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ScheduleDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ScheduleDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMIDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMIDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PrincipleAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrincipleAmount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InterestAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InterestAmount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Balance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Balance)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LoanEMIScheduleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

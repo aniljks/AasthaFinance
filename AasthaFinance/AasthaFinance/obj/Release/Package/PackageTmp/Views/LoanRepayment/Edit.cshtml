@@ -1,0 +1,384 @@
+﻿@model AasthaFinance.Data.LoanRepayment
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Edit Repayment of Loan</li>
+</ol>
+
+<h2 style="font-family:Lucida Calligraphy">Edit Repayment of Loan</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Repayment of Loan</h2></div>
+        <div class="card-body">
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12 text-danger">
+                            <ul id="errorMessage"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>LoanRepayment</legend>
+
+                    @Html.HiddenFor(model => model.LoanRepaymentId)
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.BranchId, "Branch")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("BranchId", null, String.Empty, new { @id = "ddlBranch", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BranchId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ClientId, "Client")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("ClientId", null, String.Empty, new { @id = "ddlClient", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ClientId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LoanApplicationId, "LoanApplication")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("LoanApplicationId", null, String.Empty, new { @id = "ddlLoanApplication", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LoanApplicationId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LoanDisbursementId, "LoanDisbursement")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("LoanDisbursementId", null, String.Empty, new { @id = "ddlLoanDisbursement", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LoanDisbursementId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LoanCycleId, "LoanCycle")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("LoanCycleId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.LoanCycleId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LoanEMIScheduletId, "LoanEMISchedule")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("LoanEMIScheduletId", null, String.Empty, new { @id = "ddlLoanEMISchedule", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LoanEMIScheduletId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PaymentDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PaymentDate)
+                        @Html.ValidationMessageFor(model => model.PaymentDate)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LateFees)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LateFees)
+                        @Html.ValidationMessageFor(model => model.LateFees)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.AmountPaid)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.AmountPaid, new { @id = "txtAmountPaid" })
+                        @Html.ValidationMessageFor(model => model.AmountPaid)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.BalanceAmount)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.BalanceAmount)
+                        @Html.ValidationMessageFor(model => model.BalanceAmount)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.RepaymentStatusId, "LoanRepaymentStatu")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("RepaymentStatusId", null, String.Empty, new { @id = "ddlRepaymentStatus", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RepaymentStatusId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Notes)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Notes)
+                        @Html.ValidationMessageFor(model => model.Notes)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.UserId, "User")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("UserId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.UserId)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ActualAmount)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ActualAmount)
+                        @Html.ValidationMessageFor(model => model.ActualAmount)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("AdvancePayment")
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBox("Advance")
+                    </div>
+
+
+                </fieldset>
+                <fieldset style="margin-top:10px;">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <input type="submit" id="btnSubmit" class="btn btn-primary" style="margin-right:5px;" value="Create" />
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        $('#btnSubmit').click(function (e) {
+            var listOfErrors = $("#errorMessage");
+            listOfErrors.empty();
+            $('#ddlBranch').removeClass("hasError");
+            $('#ddlClient').removeClass("hasError");
+            $('#ddlLoanApplication').removeClass("hasError");
+            $('#ddlLoanDisbursement').removeClass("hasError");
+            $('#ddlLoanEMISchedule').removeClass("hasError");
+            $('#ddlRepaymentStatus').removeClass("hasError");
+
+            $('#txtAmountPaid').removeClass("hasError");
+            $('#txtPaymentDate').removeClass("hasError");
+            //$('#txtProposedAmount').removeClass("hasError");
+
+            var isError = false;
+
+            if ($('#ddlBranch').val() == "" || $('#ddlBranch').val() == "0") {
+                var msg = "Please select Branch.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#ddlBranch').addClass("hasError");
+                isError = true;
+            }
+
+            if ($('#ddlClient').val() == "" || $('#ddlClient').val() == "0") {
+                var msg = "Please select Client.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#ddlClient').addClass("hasError");
+                isError = true;
+            }
+
+            if ($('#ddlLoanApplication').val() == "" || $('#ddlLoanApplication').val() == "0") {
+                var msg = "Please select Loan Application to disbursed.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#ddlLoanApplication').addClass("hasError");
+                isError = true;
+            }
+            if ($('#ddlLoanDisbursement').val() == "" || $('#ddlLoanDisbursement').val() == "0") {
+                var msg = "Please select Loan disbursement Code.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#ddlLoanDisbursement').addClass("hasError");
+                isError = true;
+            }
+
+            if ($('#ddlLoanEMISchedule').val() == "" || $('#ddlLoanEMISchedule').val() == "0") {
+                var msg = "Please select EMI Schedule Date.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#ddlLoanEMISchedule').addClass("hasError");
+                isError = true;
+            }
+
+            if ($('#ddlRepaymentStatus').val() == "" || $('#ddlRepaymentStatus').val() == "0") {
+                var msg = "Please select Repayment Status.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#ddlRepaymentStatus').addClass("hasError");
+                isError = true;
+            }
+
+
+
+            if ($('#txtAmountPaid').val() == "" || $('#txtAmountPaid').val() == "0") {
+                var msg = "Please Enter EMI Amount Paid.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#txtAmountPaid').addClass("hasError");
+                isError = true;
+            }
+
+            if ($('#txtPaymentDate').val() == "" || $('#txtPaymentDate').val() == "0") {
+                var msg = "Please Enter Loan EMI Payment Date.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#txtPaymentDate').addClass("hasError");
+                isError = true;
+            }
+
+
+            if (isError) {
+                e.preventDefault();
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                return false;
+            }
+        });
+
+        $("#ddlBranch").change(function () {
+            $("#ddlClient").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getClient")',
+
+                dataType: 'json',
+
+                data: { branchId: $("#ddlBranch").val() },
+
+
+                success: function (states) {
+                    debugger;
+
+                    $.each(states, function (i, state) {
+                        $("#ddlClient").append('<option value="' + state.Value + '">' +
+                             state.Text + '</option>');
+
+                    });
+                },
+                error: function (ex) {
+                    debugger;
+                    alert('Failed to retrieve Clients.' + ex);
+                }
+            });
+            return false;
+        })
+
+
+        $("#ddlClient").change(function () {
+            $("#ddlLoanApplication").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getClientLoanApplication")',
+
+                dataType: 'json',
+
+                data: { branchId: $("#ddlBranch").val(), clientId: $("#ddlClient").val() },
+
+
+                success: function (states) {
+
+
+                    $.each(states, function (i, state) {
+                        $("#ddlLoanApplication").append('<option value="' + state.Value + '">' +
+                             state.Text + '</option>');
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve Clients.' + ex);
+                }
+            });
+            return false;
+        })
+
+        $("#ddlLoanApplication").change(function () {
+            $("#ddlLoanDisbursement").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getClientLoanDisbursementCode")',
+
+                dataType: 'json',
+
+                data: { branchId: $("#ddlBranch").val(), clientId: $("#ddlClient").val(), applicationId: $("#ddlLoanApplication").val() },
+
+
+                success: function (states) {
+
+
+                    $.each(states, function (i, state) {
+                        $("#ddlLoanDisbursement").append('<option value="' + state.Value + '">' +
+                             state.Text + '</option>');
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve Disbursement Code.' + ex);
+                }
+            });
+            return false;
+        })
+
+        $("#ddlLoanDisbursement").change(function () {
+            $("#ddlLoanEMISchedule").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getDisbursementLoanSchedule")',
+
+                dataType: 'json',
+
+                data: { disbursementId: $("#ddlLoanDisbursement").val() },
+
+
+                success: function (states) {
+
+
+                    $.each(states, function (i, state) {
+                        $("#ddlLoanEMISchedule").append('<option value="' + state.Value + '">' +
+                             state.Text + '</option>');
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve EMI Schedule.' + ex);
+                }
+            });
+            return false;
+        })
+
+    });
+
+</script>
+
+<style>
+    .hasError {
+        border-color: #f83b3b;
+        border-width: 2px;
+        border-style: groove;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+</style>

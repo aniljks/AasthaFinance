@@ -1,0 +1,100 @@
+﻿@model IEnumerable<AasthaFinance.Data.LoanPreClosing>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Loan Pre-Closing</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Loan Pre-Closing</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("New Pre-Closing", "Create", new { }, new { @class = "btn btn-primary" })
+</p>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Loan Pre-Closing
+    </div> 
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanDisbursement.BankName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClosingDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AmountPaid)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PreClosingCharges)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Notes)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ActualLoanBalance)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalPaid)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanDisbursement.BankName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClosingDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AmountPaid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PreClosingCharges)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActualLoanBalance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalPaid)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.LoanPreClosingId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.LoanPreClosingId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.LoanPreClosingId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+
+</div>

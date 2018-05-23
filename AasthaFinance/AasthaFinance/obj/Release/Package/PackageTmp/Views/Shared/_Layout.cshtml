@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Aastha Finance Private Limited</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

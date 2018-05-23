@@ -1,0 +1,202 @@
+﻿@model AasthaFinance.Data.LoanApplication
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Loan Application Detail</li>
+</ol>
+
+
+<h2 style="font-family:Lucida Calligraphy">Loan Application Detail</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Loan Application Detail</h2></div>
+        <div class="card-body">
+
+
+            <fieldset>
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.BranchName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Branch.BranchName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanApplicationNo)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanApplicationNo)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanApplicationDate)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanApplicationDate)
+                </div>
+
+                @*<div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LastMonthIncome)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LastMonthIncome)
+                </div>*@
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.IsKYCVerified)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.IsKYCVerified)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.EMIStartDate)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.EMIStartDate)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanAmount)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanAmount)
+                </div>
+
+                @*<div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanPurpose)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanPurpose)
+                </div>*@
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.BankName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.BankName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.BankAccountNo)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.BankAccountNo)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ChequeNo)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ChequeNo)
+                </div>
+
+                
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.GuarantorName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.GuarantorName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.GuarantorMobile)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.GuarantorMobile)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.InterestRate)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.InterestRate)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.InterestModel.interestModel1)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.InterestModel.interestModel1)
+                </div>
+
+                @*<div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.ReasonForLoan)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ReasonForLoan)
+                </div>*@
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Freequency.Freequency1)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Freequency.Freequency1)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.LoanApplicationStatu.LoanApplicationStatus)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LoanApplicationStatu.LoanApplicationStatus)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Client.ClientName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Client.ClientName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Branch.BranchCode)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Branch.BranchCode)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.User.UserName)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.User.UserName)
+                </div>
+
+                <div style="font-weight:bold;" class="display-label">
+                    @Html.DisplayNameFor(model => model.Notes)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Notes)
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="form-group">
+                    <div class="form-row">
+                        @*<input type="submit" class="btn btn-primary"  value="Create" />*@
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.LoanApplicationId }, new { style = "margin-right:5px;", @class = "btn btn-primary" })
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+
+                    </div>
+                </div>
+            </fieldset>
+
+            <p>
+
+
+            </p>
+        </div>
+    </div>
+
+</div>
