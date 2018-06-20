@@ -11,6 +11,7 @@ using AasthaFinance.Models;
 
 namespace AasthaFinance.Controllers
 {
+    [Authorize]
     public class BranchController : Controller
     {
         private AasthaFinanceEntities db = new AasthaFinanceEntities();

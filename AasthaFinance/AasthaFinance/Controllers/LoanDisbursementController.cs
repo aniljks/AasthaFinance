@@ -12,6 +12,7 @@ using AVS.Common.Logger;
 
 namespace AasthaFinance.Controllers
 {
+    [Authorize]
     public class LoanDisbursementController : Controller
     {
         private AasthaFinanceEntities db = new AasthaFinanceEntities();

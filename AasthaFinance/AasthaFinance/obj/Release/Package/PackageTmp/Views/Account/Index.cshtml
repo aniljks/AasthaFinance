@@ -1,0 +1,61 @@
+﻿@model AasthaFinance.Models.Account
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="font-family:Lucida Calligraphy">Login</h2>
+<hr />
+
+<div class="container">
+    <div class="card card-register mx-4 mt-2">
+        <div class="card-header"><h2>Sign in Here</h2></div>
+        <div class="card-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.UserName)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.UserName)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Password)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <fieldset>
+                    <div class="form-group">
+                        <div class="form-row">
+
+                            <input type="submit" class="btn btn-primary" style="margin-right:5px;" value="Login" />
+
+                            @Html.ActionLink("Register", "Register", null, new { @class = "btn btn-primary" })
+
+                        </div>
+                    </div>
+                </fieldset>
+            }
+
+
+
+        </div>
+    </div>
+</div>

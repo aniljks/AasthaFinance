@@ -1,0 +1,26 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+        @*@Html.ActionLink("Hello," + User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "nav-link-text", title = "Manage", @style = "color:antiquewhite" })!*@
+        <a href="@Url.Action("Manage", "Account")" style="color: antiquewhite; text-align:center;" class="nav-link">
+            <i class="fa fa-fw fa-user-circle"></i>
+            Hello, @User.Identity.Name
+        </a>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link">
+                <i class="fa fa-fw fa-sign-out"></i>
+                Log off
+            </a>
+        }
+    </text>
+}
+else
+{
+    <ul class="navbar-nav navbar-expand-md">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link", @style = "color: white; display: -webkit-inline-box;" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link", @style = "margin-left:5px; color: white; display: -webkit-inline-box;" })</li>
+    </ul>
+}

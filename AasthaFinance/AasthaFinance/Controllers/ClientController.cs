@@ -14,6 +14,7 @@ using System.IO;
 namespace AasthaFinance.Controllers
 {
     //[AuthorizeFilter("Admin")]
+    [Authorize]
     public class ClientController : BaseController
     {
         private AasthaFinanceEntities db = new AasthaFinanceEntities();

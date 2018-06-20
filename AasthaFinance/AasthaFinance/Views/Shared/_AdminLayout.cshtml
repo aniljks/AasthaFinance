@@ -161,34 +161,36 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
-                        <div class="input-group">
-                            @*<input class="form-control" type="text" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>*@
+                @*<li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
 
-                            @if (Session["UserId"] != null)
-                            {
-                                <label class="form-control">Hello ! @Session["UserId"]</label>
-                            }
-                        </div>
-                    </form>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" href="@Url.Action("Logout", "Dashboard")" data-target="#exampleModal">
-                        <i class="fa fa-fw fa-sign-out"></i>Logout
-                        @*@Html.ActionLink("LogOut", "Logout", "", null, new { @style = "margin-right: 41px;", @class = "fa fa-fw fa-sign-out" });*@
-                    </a>
+                                @if (Session["UserId"] != null)
+                                {
+                                    <label class="form-control">Hello ! @Session["UserId"]</label>
+                                }
+                            </div>
+                        </form>
+                    </li>*@
+                @*<li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" href="@Url.Action("Logout", "Dashboard")" data-target="#exampleModal">
+                            <i class="fa fa-fw fa-sign-out"></i>Logout
+                        </a>
+                    </li>*@
+                <li style="color: white; display: -webkit-inline-box;">
+                    @Html.Partial("_LoginPartial")
                 </li>
             </ul>
         </div>
     </nav>
     <div class="content-wrapper">
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top:5px;">
             @RenderBody()
         </div>
         <!-- /.container-fluid-->

@@ -11,7 +11,7 @@ using System.Web.Security;
 
 namespace AasthaFinance.Controllers
 {
-    //[AasthaFinance.Filters.AuthorizeFilter("Admin")]
+    [Authorize]
     public class DashBoardController : BaseController
     {
         private AasthaFinanceEntities db = new AasthaFinanceEntities();

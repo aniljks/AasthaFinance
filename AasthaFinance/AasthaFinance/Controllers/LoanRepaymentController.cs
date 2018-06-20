@@ -10,6 +10,7 @@ using AasthaFinance.Models;
 
 namespace AasthaFinance.Controllers
 {
+    [Authorize]
     public class LoanRepaymentController : Controller
     {
         private AasthaFinanceEntities db = new AasthaFinanceEntities();

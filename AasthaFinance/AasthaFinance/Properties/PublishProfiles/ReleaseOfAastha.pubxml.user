@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 08:46:27</publishTime>
     </File>
     <File Include="bin/AasthaFinance.dll">
-      <publishTime>04/12/2018 08:54:17</publishTime>
+      <publishTime>06/17/2018 12:54:25</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>01/06/2018 08:47:00</publishTime>
@@ -74,6 +74,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/de/System.Spatial.resources.dll">
       <publishTime>01/06/2018 08:46:55</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.AspNet.dll">
+      <publishTime>05/24/2018 10:04:35</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.Core.dll">
+      <publishTime>05/24/2018 10:03:24</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
+      <publishTime>05/24/2018 10:04:35</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.dll">
+      <publishTime>05/24/2018 10:04:35</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.dll">
+      <publishTime>05/24/2018 10:04:35</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
+      <publishTime>05/24/2018 10:04:35</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>01/06/2018 08:46:38</publishTime>
@@ -141,8 +159,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
       <publishTime>01/06/2018 08:46:52</publishTime>
     </File>
+    <File Include="bin/Microsoft.Web.WebPages.OAuth.dll">
+      <publishTime>05/25/2018 08:53:45</publishTime>
+    </File>
+    <File Include="bin/Mono.Math.dll">
+      <publishTime>05/24/2018 10:04:35</publishTime>
+    </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>01/06/2018 08:46:50</publishTime>
+    </File>
+    <File Include="bin/Org.Mentalis.Security.Cryptography.dll">
+      <publishTime>05/24/2018 10:04:35</publishTime>
     </File>
     <File Include="bin/PagedList.dll">
       <publishTime>01/14/2018 00:05:26</publishTime>
@@ -213,6 +240,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/WebGrease.dll">
       <publishTime>01/06/2018 08:47:00</publishTime>
     </File>
+    <File Include="bin/WebMatrix.Data.dll">
+      <publishTime>05/25/2018 08:53:19</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.WebData.dll">
+      <publishTime>05/25/2018 08:53:45</publishTime>
+    </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
       <publishTime>01/06/2018 08:46:56</publishTime>
     </File>
@@ -271,7 +304,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 12:46:02</publishTime>
     </File>
     <File Include="js/sb-admin-charts.js">
-      <publishTime>01/13/2018 09:00:50</publishTime>
+      <publishTime>05/17/2018 08:48:15</publishTime>
     </File>
     <File Include="js/sb-admin-charts.min.js">
       <publishTime>01/13/2018 09:06:17</publishTime>
@@ -301,7 +334,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 12:46:02</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>03/21/2018 22:04:35</publishTime>
+      <publishTime>05/25/2018 08:53:47</publishTime>
     </File>
     <File Include="pug/blank.pug">
       <publishTime>01/06/2018 12:46:02</publishTime>
@@ -576,6 +609,36 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="vendor/jquery/jquery.min.js">
       <publishTime>01/06/2018 12:46:03</publishTime>
     </File>
+    <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
+      <publishTime>05/25/2018 09:04:29</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginFailure.cshtml">
+      <publishTime>05/24/2018 09:46:39</publishTime>
+    </File>
+    <File Include="Views/Account/Index.cshtml">
+      <publishTime>05/17/2018 08:55:46</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>06/17/2018 12:41:37</publishTime>
+    </File>
+    <File Include="Views/Account/Manage.cshtml">
+      <publishTime>05/25/2018 09:04:29</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>05/25/2018 09:04:12</publishTime>
+    </File>
+    <File Include="Views/Account/_ChangePasswordPartial.cshtml">
+      <publishTime>05/25/2018 09:04:29</publishTime>
+    </File>
+    <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
+      <publishTime>05/24/2018 09:46:39</publishTime>
+    </File>
+    <File Include="Views/Account/_RemoveExternalLoginsPartial.cshtml">
+      <publishTime>05/25/2018 09:04:29</publishTime>
+    </File>
+    <File Include="Views/Account/_SetPasswordPartial.cshtml">
+      <publishTime>05/25/2018 09:04:29</publishTime>
+    </File>
     <File Include="Views/Branch/Create.cshtml">
       <publishTime>01/20/2018 16:54:01</publishTime>
     </File>
@@ -607,13 +670,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/17/2018 09:33:11</publishTime>
     </File>
     <File Include="Views/Collection/GetCollectionDetail.cshtml">
-      <publishTime>04/02/2018 21:23:40</publishTime>
+      <publishTime>04/15/2018 16:10:47</publishTime>
+    </File>
+    <File Include="Views/Collection/GetCollectioninputDetail.cshtml">
+      <publishTime>04/15/2018 16:08:06</publishTime>
     </File>
     <File Include="Views/Collection/Index.cshtml">
       <publishTime>02/25/2018 21:27:12</publishTime>
     </File>
     <File Include="Views/DashBoard/Index.cshtml">
-      <publishTime>01/20/2018 14:19:39</publishTime>
+      <publishTime>05/17/2018 08:48:25</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>01/06/2018 09:56:47</publishTime>
@@ -703,13 +769,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/31/2018 22:15:28</publishTime>
     </File>
     <File Include="Views/ScheduleReport/PrintSchedule.cshtml">
-      <publishTime>04/01/2018 22:25:18</publishTime>
+      <publishTime>04/15/2018 16:27:34</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>01/06/2018 08:46:28</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>04/12/2018 07:30:02</publishTime>
+      <publishTime>06/17/2018 12:36:56</publishTime>
     </File>
     <File Include="Views/Shared/_DashBoardLayout.cshtml">
       <publishTime>01/07/2018 11:37:49</publishTime>
@@ -718,7 +784,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/11/2018 22:08:00</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/06/2018 09:54:40</publishTime>
+      <publishTime>06/17/2018 12:40:19</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>06/17/2018 12:45:47</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/06/2018 08:46:28</publishTime>
@@ -727,7 +796,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 08:46:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/12/2018 08:54:18</publishTime>
+      <publishTime>06/17/2018 13:33:43</publishTime>
     </File>
   </ItemGroup>
 </Project>

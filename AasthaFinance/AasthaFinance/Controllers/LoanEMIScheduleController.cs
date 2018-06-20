@@ -11,6 +11,7 @@ using ReportManagement;
 
 namespace AasthaFinance.Controllers
 {
+    [Authorize]
     public class LoanEMIScheduleController : Controller
     {
         private AasthaFinanceEntities db = new AasthaFinanceEntities();

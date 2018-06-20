@@ -82,8 +82,7 @@
                             <p>
                                 <input type="submit" id="btnSubmit" class="btn btn-primary" value="Search" />
                                 <input id="btnReset" type="button" class="btn btn-primary" value="Reset" />
-                                <input type="button" id="btnDownload" class="btn btn-primary" value="Download Report" onclick="location.href='@Url.Action("PDF", "Collection", new { method = "POST", StartDate = Model.StartDate, EndDate = Model.EndDate, BranchId = Model.BranchId, ClientId = Model.ClientId })'" />
-
+                                @*<input type="button" id="btnDownload" class="btn btn-primary" value="Download Report" onclick="location.href='@Url.Action("PDF", "Collection", new { method = "POST", StartDate = Model.StartDate, EndDate = Model.EndDate, BranchId = Model.BranchId, ClientId = Model.ClientId })'" />*@
                                 <input type="button" id="btnPrintTodayCollection" class="btn btn-primary" value="Print Today's Collection recipt" onclick="location.href='@Url.Action("PrintTodayCollectionReciptsForBranch", "Collection", new { method = "POST", StartDate = Model.StartDate, EndDate = Model.EndDate, BranchId = Model.BranchId, ClientId = Model.ClientId })'" />
                             </p>
 
