@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestGraph</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/js/Chart/Chart.js"></script>
+</head>
+<body>
+    <div>
+        <div class="col-sm-3">
+            <select class="form-control" id="branches1">
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </div>
+
+        Hello from Test Graph
+        <canvas class="chartjs fullwidth height-400" id="lineChartCanvasServiceQuality" width="547" height="300"></canvas>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //document.getElementById("branches1").innerHTML += "<% GetBranches();%> ";
+            //var element = document.getElementById("graphDescription");
+            //element.style.display = 'none';
+
+            generateReport();
+
+        })
+        function generateReport() {
+            var firstBranch = document.getElementById("branches1").value;
+            var branchData = { firstBranch: firstBranch };
+            branchData = JSON.stringify(branchData);
+            $.ajax({
+                type: "POST",
+                url: "/DashBoard/GenerateReport",
+                //data: branchData,
+                data: '{firstBranch: "' + firstBranch + '" }',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: OnSuccessGenerateReport,
+                error: OnErrorGenerateReport
+            });
+
+        }
+        function OnSuccessGenerateReport(response) {
+            debugger;
+            //Bank Branch Performance
+            var objectData = response.d; // JSON.parse(response.d);
+            var lineChartCanvasBankPerformance = {
+                labels: objectData.labels,
+                datasets: [
+                               {
+                                   label: "My First dataset",
+                                   fillColor: "rgba(0,128,128,0.2)",
+                                   strokeColor: "rgba(220,220,220,1)",
+                                   pointColor: "rgba(220,220,220,1)",
+                                   pointStrokeColor: "#fff",
+                                   pointHighlightFill: "#fff",
+                                   pointHighlightStroke: "rgba(220,220,220,1)",
+                                   data: objectData.dataset1
+
+                               }]
+            };
+
+            var ctx = document.getElementById("lineChartCanvasServiceQuality").getContext("2d");
+            new Chart(ctx).Line(lineChartCanvasBankPerformance);
+            var element = document.getElementById("graphDescription");
+            element.style.display = 'block';
+            element.innerHTML = element.innerHTML.replace('{1}', objectData.dataset1name);
+        }
+        function OnErrorGenerateReport(data) {
+            debugger;
+            alert(data);
+        }
+
+
+    </script>
+
+</body>
+</html>

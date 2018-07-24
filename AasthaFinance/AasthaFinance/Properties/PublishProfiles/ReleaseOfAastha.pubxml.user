@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 08:46:27</publishTime>
     </File>
     <File Include="bin/AasthaFinance.dll">
-      <publishTime>06/17/2018 12:54:25</publishTime>
+      <publishTime>07/23/2018 21:00:57</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>01/06/2018 08:47:00</publishTime>
@@ -303,8 +303,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="index.html">
       <publishTime>01/06/2018 12:46:02</publishTime>
     </File>
+    <File Include="js/Chart/Chart.js">
+      <publishTime>09/22/2016 19:18:48</publishTime>
+    </File>
+    <File Include="js/Chart/Chart.min.js">
+      <publishTime>09/22/2016 19:18:48</publishTime>
+    </File>
     <File Include="js/sb-admin-charts.js">
-      <publishTime>05/17/2018 08:48:15</publishTime>
+      <publishTime>07/21/2018 14:20:01</publishTime>
     </File>
     <File Include="js/sb-admin-charts.min.js">
       <publishTime>01/13/2018 09:06:17</publishTime>
@@ -334,7 +340,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 12:46:02</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/25/2018 08:53:47</publishTime>
+      <publishTime>07/21/2018 14:58:03</publishTime>
     </File>
     <File Include="pug/blank.pug">
       <publishTime>01/06/2018 12:46:02</publishTime>
@@ -392,6 +398,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="register.html">
       <publishTime>01/06/2018 12:46:02</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.js">
+      <publishTime>07/21/2018 14:58:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.js">
+      <publishTime>07/21/2018 14:58:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.map">
+      <publishTime>07/21/2018 14:58:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.js">
+      <publishTime>07/21/2018 14:58:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>07/21/2018 14:58:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.map">
+      <publishTime>07/21/2018 14:58:03</publishTime>
     </File>
     <File Include="scss/navbar/_navbar_colors.scss">
       <publishTime>01/06/2018 12:46:02</publishTime>
@@ -655,7 +679,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/20/2018 16:48:22</publishTime>
     </File>
     <File Include="Views/Client/Create.cshtml">
-      <publishTime>01/21/2018 18:33:08</publishTime>
+      <publishTime>07/23/2018 19:56:26</publishTime>
     </File>
     <File Include="Views/Client/Delete.cshtml">
       <publishTime>02/17/2018 09:33:58</publishTime>
@@ -664,7 +688,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2018 07:18:53</publishTime>
     </File>
     <File Include="Views/Client/Edit.cshtml">
-      <publishTime>01/20/2018 14:35:38</publishTime>
+      <publishTime>07/23/2018 19:56:35</publishTime>
     </File>
     <File Include="Views/Client/Index.cshtml">
       <publishTime>02/17/2018 09:33:11</publishTime>
@@ -681,11 +705,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/DashBoard/Index.cshtml">
       <publishTime>05/17/2018 08:48:25</publishTime>
     </File>
+    <File Include="Views/DashBoard/TestGraph.cshtml">
+      <publishTime>07/21/2018 22:37:37</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>01/06/2018 09:56:47</publishTime>
     </File>
     <File Include="Views/LoanApplication/Create.cshtml">
-      <publishTime>03/18/2018 18:17:38</publishTime>
+      <publishTime>07/09/2018 21:24:48</publishTime>
     </File>
     <File Include="Views/LoanApplication/Delete.cshtml">
       <publishTime>01/21/2018 07:29:00</publishTime>
@@ -694,13 +721,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/18/2018 20:08:47</publishTime>
     </File>
     <File Include="Views/LoanApplication/Edit.cshtml">
-      <publishTime>03/18/2018 18:45:12</publishTime>
+      <publishTime>07/23/2018 19:59:41</publishTime>
     </File>
     <File Include="Views/LoanApplication/Index.cshtml">
       <publishTime>03/18/2018 19:13:12</publishTime>
     </File>
     <File Include="Views/LoanDisbursement/Create.cshtml">
-      <publishTime>04/12/2018 08:27:13</publishTime>
+      <publishTime>07/23/2018 20:01:32</publishTime>
     </File>
     <File Include="Views/LoanDisbursement/Delete.cshtml">
       <publishTime>01/21/2018 07:35:57</publishTime>
@@ -709,10 +736,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/18/2018 08:05:45</publishTime>
     </File>
     <File Include="Views/LoanDisbursement/Edit.cshtml">
-      <publishTime>03/25/2018 22:42:41</publishTime>
+      <publishTime>07/23/2018 20:02:10</publishTime>
     </File>
     <File Include="Views/LoanDisbursement/Index.cshtml">
-      <publishTime>01/21/2018 19:14:58</publishTime>
+      <publishTime>07/23/2018 20:02:42</publishTime>
     </File>
     <File Include="Views/LoanEMISchedule/Create.cshtml">
       <publishTime>01/19/2018 08:28:20</publishTime>
@@ -796,7 +823,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 08:46:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/17/2018 13:33:43</publishTime>
+      <publishTime>07/23/2018 21:00:58</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -141,7 +141,7 @@
                                 @Html.ValidationMessageFor(model => model.PaymentModeId)
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        @*<div class="col-md-6">
                             <div class="editor-label">
                                 @Html.LabelFor(model => model.BankName)
                             </div>
@@ -149,11 +149,11 @@
                                 @Html.TextBoxFor(model => model.BankName, new { @id = "txtBankName", @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.BankName)
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                     <br />
                     <div class="form-row">
-                        <div class="col-md-6">
+                        @*<div class="col-md-6">
                             <div class="editor-label">
                                 @Html.LabelFor(model => model.PaymentChequeNo)
                             </div>
@@ -161,7 +161,7 @@
                                 @Html.TextBoxFor(model => model.PaymentChequeNo, new { @id = "txtPaymentCheque", @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.PaymentChequeNo)
                             </div>
-                        </div>
+                        </div>*@
                         <div class="col-md-6">
                             <div class="editor-label">
                                 @Html.LabelFor(model => model.LoanCycleId, "LoanCycle")
@@ -201,7 +201,7 @@
                                 @Html.LabelFor(model => model.ActualPaidAmount)
                             </div>
                             <div class="editor-field">
-                                @Html.TextBoxFor(model => model.ActualPaidAmount, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.ActualPaidAmount, new { @id = "txtActualPaidAmount", @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.ActualPaidAmount)
                             </div>
                         </div>
@@ -356,6 +356,7 @@
             $('#txtTimePeriod').removeClass("hasError");
             $('#txtLoanEMI').removeClass("hasError");
             $('#txtEMIStartDate').removeClass("hasError");
+            $('#txtActualPaidAmount').removeClass("hasError");            
             $('#txtProposedAmount').removeClass("hasError");
             $('#ddlLoanStatus').removeClass("hasError");
             var isError = false;
@@ -417,6 +418,13 @@
                 isError = true;
             }
 
+            if ($('#txtActualPaidAmount').val() == "" || $('#txtActualPaidAmount').val() == "0") {
+                var msg = "Please Enter Loan Actual Amount Paid.";
+                listOfErrors.append('<li>' + msg + '</li>');
+                $('#txtActualPaidAmount').addClass("hasError");
+                isError = true;
+            }
+
             if ($('#txtEMIStartDate').val() == "" || $('#txtEMIStartDate').val() == "0") {
                 var msg = "Please Enter Loan EMI Start Date.";
                 listOfErrors.append('<li>' + msg + '</li>');
@@ -424,6 +432,8 @@
                 isError = true;
             }
 
+
+            
             if ($('#txtProposedAmount').val() == "" || $('#txtProposedAmount').val() == "0") {
                 var msg = "Please Enter Loan Proposed Amount.";
                 listOfErrors.append('<li>' + msg + '</li>');

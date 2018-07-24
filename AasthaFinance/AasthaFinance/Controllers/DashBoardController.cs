@@ -144,6 +144,33 @@ namespace AasthaFinance.Controllers
             }
         }
 
+        public ActionResult TestGraph()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult GenerateReport(int firstBranch)
+        {
+            ReportData reportData = new ReportData();
+
+
+            int totalCount = 5;
+
+            reportData.labels = new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "Sept", "Oct", "Nov", "Dec" };
+            reportData.dataset1 = new Int32[reportData.labels.Count()];
+            int k = 9;
+            for (int index = 0; index < totalCount; index++)
+            {
+
+                reportData.dataset1[index] = k * index + 4;
+
+            }
+
+            reportData.dataset1name = "NBH";
+            //return Newtonsoft.Json.JsonConvert.SerializeObject(reportData);
+            return Json(reportData);
+        }
 
         public ActionResult Logout()
         {

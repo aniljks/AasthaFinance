@@ -162,7 +162,8 @@ namespace AasthaFinance.Controllers.Reports
 
                 foreach (var schedule in loanSchedules)
                 {
-                    var repayment = loanRepayments.Where(x => x.PaymentDate == schedule.EMIDate && x.LoanEMIScheduletId == schedule.LoanEMIScheduleId).FirstOrDefault();
+                    var repayment = loanRepayments.Where(x => x.LoanEMIScheduletId == schedule.LoanEMIScheduleId).FirstOrDefault();
+                    //var repayment = loanRepayments.Where(x => x.PaymentDate == schedule.EMIDate && x.LoanEMIScheduletId == schedule.LoanEMIScheduleId).FirstOrDefault();
 
                     if (repayment == null)
                     {

@@ -12,7 +12,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 //}
 
 var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
+var myAreaChart = new Chart(ctx, {
     type: 'line',
     data: {
         //labels: [getChartLabels],
@@ -65,6 +65,9 @@ var myLineChart = new Chart(ctx, {
 
 //testDa();
 //myLineChart.data.labels = 
+
+myAreaChart.data.labels = ["Mar 11", "Mar 21", "Mar 31", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 12", "Mar 12", "Mar 13"];
+
 // -- Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
